@@ -17,6 +17,11 @@
   color: #2c3e50;
 }
 
+#app .img-logo{
+  width: 100%;
+  height: auto;
+}
+
 #nav {
   padding: 30px;
 }
