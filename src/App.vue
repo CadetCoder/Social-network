@@ -1,14 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Navigation
+      :nav-links="navLinks"
+    />
     <router-view/>
   </div>
 </template>
 
-<style>
+<script>
+import Navigation from '@/components/Navigation.vue'
+
+export default {
+
+components: {
+  Navigation },
+  data: () => ({
+    navLinks: [
+    {
+      text: 'Home',
+      path: '/Home',
+      icon: 'ion-ios-home'
+    },
+    {
+      text: 'Feed',
+      path: '/Feed',
+      icon: 'ion-ios-home'
+    },
+    ]
+  })
+}
+</script>
+
+<style scoped>
+@import 'https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,7 +43,7 @@
 }
 
 #app .img-logo{
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
