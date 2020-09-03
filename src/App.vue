@@ -11,21 +11,26 @@
 import Navigation from '@/components/Navigation.vue'
 
 export default {
-
-components: {
-  Navigation },
+  components: {
+    Navigation
+  },
   data: () => ({
     navLinks: [
     {
       text: 'Home',
-      path: '/Home',
+      path: '/',
       icon: 'ion-ios-home'
     },
     {
       text: 'Feed',
-      path: '/Feed',
+      path: '/feed',
       icon: 'ion-ios-home'
     },
+    {
+      text: 'Profile',
+      path: '/feed',
+      icon: 'ion-ios-home'
+    }
     ]
   })
 }
