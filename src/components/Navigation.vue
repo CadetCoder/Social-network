@@ -13,7 +13,7 @@ export default {
   props: {
     navLinks: {
       type: Array,
-      default: () => {
+        default: () => {
         return []
       }
     }
