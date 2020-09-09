@@ -1,6 +1,6 @@
 <template>
   <v-app class="main-bg">
-    <v-content with="400">
+    <v-main with="400">
       <v-container>
         <v-card class="mx-auto mt-12">
           <v-img class="logo-img" max-height="100" with="100" p src="../assets/logo.png"></v-img>
@@ -42,7 +42,7 @@
             </v-card-actions>
         </v-card>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 <script>
