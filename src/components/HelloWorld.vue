@@ -6,9 +6,9 @@
       <v-flex xs12>
         <v-img
           :src="require('../assets/logo-main-white.png')"
-          class="my-3"
+          class="my-4"
           contain
-          height="200">
+          height="180">
         </v-img>
       </v-flex>
 
@@ -30,5 +30,10 @@ h1 {
   }
 p{
   color: #ECEFF1;
+}
+.bg-img{
+  background-image: url('../assets/bg-building.jpg');
+  opacity: 10%;
+  height: 100%;
 }
 </style>

@@ -16,6 +16,15 @@ Vue.use(TiptapVuetifyPlugin, {
 
 export default new Vuetify({
   theme: {
-    dark: true
+    dark: true,
+    themes: {
+      dark: {
+        primary: '#333333',
+        secondary: '#BBBBBB',
+        accent: '#CCCCCC',
+        error: '#EF5350',
+        bGrey: '#EEEEEE'
+      }
+    }
   }
 })
