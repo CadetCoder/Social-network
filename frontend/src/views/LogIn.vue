@@ -14,7 +14,7 @@
               <v-toolbar-title>Login</v-toolbar-title>
               </v-toolbar>
               <v-card-text>
-                <v-form>
+                <v-form @submit.prevent="submitForm">
                   <v-text-field
                     label="Username"
                     name="login"
