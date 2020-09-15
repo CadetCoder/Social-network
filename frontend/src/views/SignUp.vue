@@ -10,7 +10,7 @@
           dark
           flat
         >
-        <v-toolbar-title>Create an account</v-toolbar-title>
+        <v-toolbar-title>Create New account</v-toolbar-title>
           </v-toolbar>
             <v-card-text>
               <v-form @submit.prevent="submitForm">
@@ -41,7 +41,7 @@
             </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary">Create Account </v-btn>
+            <v-btn color="primary" @click="registerUser">Create Account </v-btn>
             <v-btn color="error" to="/">cancel</v-btn>
           </v-card-actions>
         </v-card>
