@@ -6,7 +6,7 @@
         {{ brand }}
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items>
         <v-btn text rounded to="/SignUp">Sign Up</v-btn>
         <v-btn text rounded to="/LogIn">Log In</v-btn>
       </v-toolbar-items>
@@ -27,10 +27,15 @@
 
         <v-spacer></v-spacer>
 
+        <v-btn @click="toggleLogIn">
+          {{ isAuthenticated ? "Log out" : "Log in" }}
+        </v-btn>
         <v-btn
           v-for= "icon in icons"
-          :key= "icon.href"
-          class= "mx-4"
+          :key="icon.href"
+          class="mx-4"
+          :href="icon.href"
+          target="_blank"
           dark
           icon
         >
@@ -68,6 +73,16 @@
         href: 'https://instagram.com'
       }
     ]
-    })
+    }),
+    methods: {
+      toggleLogIn () {
+        this.$store.commit('setAuthentication', !this.isAuthenticated)
+      }
+    },
+    computed: {
+      isAuthenticated () {
+        return this.$store.getters.isAuthenticated
+      }
+    }
   }
 </script>

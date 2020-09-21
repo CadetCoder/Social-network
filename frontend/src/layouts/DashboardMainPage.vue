@@ -6,10 +6,12 @@
         {{ brand }}
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn text rounded to="/">Home</v-btn>
+      <v-toolbar-items>
+        <template v-if="isAuthenticated">
+        <v-btn text rounded to="/feed">Home</v-btn>
         <v-btn text rounded>Log Out</v-btn>
         <v-btn text rounded to="/Profile">Profile</v-btn>
+        </template>
       </v-toolbar-items>
     </v-app-bar>
       <slot/>
@@ -29,9 +31,11 @@
         <v-spacer></v-spacer>
 
         <v-btn
-          v-for= "icon in icons"
-          :key= "icon.href"
-          class= "mx-4"
+          v-for="icon in icons"
+          :key="icon.href"
+          class="mx-4"
+          :href="icon.href"
+          target="_blank"
           dark
           icon
         >
@@ -69,6 +73,11 @@
         href: 'https://instagram.com'
       }
     ]
-    })
+    }),
+    computed: {
+      isAuthenticated () {
+        return this.$store.getters.isAuthenticated
+      }
+    }
   }
 </script>

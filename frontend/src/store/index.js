@@ -6,19 +6,24 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currentPost: '',
-    allPosts: []
+    allPosts: [],
+    authenticated: false
   },
   mutations: {
     setCurrentPost (state, payload) {
       state.currentPost = payload
       state.allPosts.push(payload)
+    },
+    setAuthentication (state, payload) {
+      state.authenticated = payload
     }
   },
   actions: {
   },
   modules: {
   },
-  getter: {
-    getcurrentPost: state => state.currentPost
+  getters: {
+    getCurrentPost: state => state.currentPost,
+    isAuthenticated: state => state.authenticated
   }
 })
