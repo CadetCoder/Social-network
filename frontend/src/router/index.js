@@ -10,7 +10,7 @@ Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {

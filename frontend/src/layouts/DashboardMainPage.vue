@@ -3,7 +3,7 @@
     <v-app-bar secondary dark>
       <v-toolbar-title
       text>
-        {{ brand }}
+      {{ brand }}
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>

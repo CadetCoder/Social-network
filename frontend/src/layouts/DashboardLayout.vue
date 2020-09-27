@@ -3,7 +3,10 @@
     <v-app-bar secondary dark>
       <v-toolbar-title
       text>
-        {{ brand }}
+        <span
+          class="home"
+          @click="navigateTo({name: 'home'})">
+          Groupomania</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -54,7 +57,6 @@
 <script>
   export default {
     data: () => ({
-      brand: 'Groupomania',
       icons: [
       {
         icon: 'mdi-facebook',
@@ -83,6 +85,9 @@
       isAuthenticated () {
         return this.$store.getters.isAuthenticated
       }
+    },
+    navigateTo (route) {
+      this.$router.push(route)
     }
   }
 </script>
