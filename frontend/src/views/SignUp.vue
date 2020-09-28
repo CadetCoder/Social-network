@@ -26,8 +26,8 @@
                   v-model= "email"
                   prepend-icon= "mdi-mail"
                   type= "text"
-                ></v-text-field>
-
+                >
+                </v-text-field>
                 <v-text-field
                 :type= "showPassword ? 'text' : 'password' "
                 label= "Your password"

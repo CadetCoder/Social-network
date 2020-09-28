@@ -77,14 +77,10 @@
     ]
     }),
     methods: {
-      toggleLogIn () {
-        this.$store.commit('setAuthentication', !this.isAuthenticated)
-      }
+      //
     },
     computed: {
-      isAuthenticated () {
-        return this.$store.getters.isAuthenticated
-      }
+      //
     },
     navigateTo (route) {
       this.$router.push(route)
