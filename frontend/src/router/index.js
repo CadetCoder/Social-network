@@ -27,9 +27,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "LogIn" */'../views/LogIn.vue')
   },
   {
-    path: '/feed',
+    path: '/feeds',
     name: 'Feed',
-    component: () => import('../views/Feed.vue')
+    component: () => import('../views/Feeds.vue')
   },
   {
     path: '/new-post',

@@ -10,8 +10,8 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text rounded to="/SignUp">Sign Up</v-btn>
-        <v-btn text rounded to="/LogIn">Log In</v-btn>
+        <v-btn text rounded to="/sign-up">Sign Up</v-btn>
+        <v-btn text rounded to="/log-in">Log In</v-btn>
       </v-toolbar-items>
     </v-app-bar>
       <slot/>
@@ -30,9 +30,9 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn @click="toggleLogIn">
+        <!-- <v-btn @click="toggleLogIn">
           {{ isAuthenticated ? "Log out" : "Log in" }}
-        </v-btn>
+        </v-btn> -->
         <v-btn
           v-for= "icon in icons"
           :key="icon.href"

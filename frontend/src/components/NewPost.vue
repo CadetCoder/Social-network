@@ -5,27 +5,21 @@
         v-model="title"
         label="Title"
       ></v-text-field>
-      <v-textarea
-        v-model="comment"
-        solo
-        name="input-7-4"
-        label="Comments"
-      ></v-textarea>
-      <v-file-input
-      label="File input"
-      filled
-      prepend-icon="mdi-camera"
-      @change="upload"
-      ></v-file-input>
-      <v-btn type="submit">Submit</v-btn>
+      <tiptap-vuetify
+        v-model="content"
+        :extensions="extensions"
+      />
+      <v-btn type="submit" to="/feeds">Submit</v-btn>
     </v-form>
     </v-card>
 </template>
 
 <script>
+import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, Paragraph, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, HorizontalRule, History, Image } from 'tiptap-vuetify'
+
 export default {
   components: {
-    //
+    TiptapVuetify
   },
   data: () => ({
     title: '',
@@ -37,6 +31,28 @@ export default {
       this.file = file
       console.log(file)
     }
+  },
+  extensions: [
+    History,
+    Blockquote,
+    Link,
+    Underline,
+    Strike,
+    Italic,
+    ListItem,
+    BulletList,
+    OrderedList,
+    Image,
+    [Heading, {
+      options: {
+        levels: [1, 2, 3]
+      }
+    }],
+    Bold,
+    Code,
+    HorizontalRule,
+    Paragraph,
+    HardBreak
+    ]
   }
-}
 </script>
