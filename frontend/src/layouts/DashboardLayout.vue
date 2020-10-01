@@ -3,10 +3,9 @@
     <v-app-bar secondary dark>
       <v-toolbar-title
       text>
-        <span
-          class="home"
-          @click="navigateTo({name: 'home'})">
-          Groupomania</span>
+        <router-link
+          :to="{name: 'home'}">
+          Groupomania</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -81,9 +80,6 @@
     },
     computed: {
       //
-    },
-    navigateTo (route) {
-      this.$router.push(route)
     }
   }
 </script>

@@ -3,14 +3,16 @@
     <v-app-bar secondary dark>
       <v-toolbar-title
       text>
-      {{ brand }}
+      <router-link :to="{name: 'home'}">
+      Groupomania
+      </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <template v-if="isAuthenticated">
-        <v-btn text rounded to="/feed">Home</v-btn>
+        <v-btn text rounded :to="{name: 'feeds'}">Home</v-btn>
         <v-btn text rounded>Log Out</v-btn>
-        <v-btn text rounded to="/Profile">Profile</v-btn>
+        <v-btn text rounded :to="{name: 'profile'}">Profile</v-btn>
         </template>
       </v-toolbar-items>
     </v-app-bar>
@@ -54,7 +56,6 @@
 <script>
   export default {
     data: () => ({
-      brand: 'Groupomania',
       icons: [
       {
         icon: 'mdi-facebook',
