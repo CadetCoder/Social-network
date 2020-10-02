@@ -9,7 +9,7 @@
         v-model="content"
         :extensions="extensions"
       />
-      <v-btn type="submit" :to="{name: 'signup'}">Submit</v-btn>
+      <v-btn type="submit" :to="{name: 'register'}">Submit</v-btn>
     </v-form>
     </v-card>
 </template>

@@ -9,7 +9,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn text rounded to="/sign-up">Sign Up</v-btn>
+        <v-btn text rounded to="/register">Sign Up</v-btn>
         <v-btn text rounded to="/log-in">Log In</v-btn>
       </v-toolbar-items>
     </v-app-bar>

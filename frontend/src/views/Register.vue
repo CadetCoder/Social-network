@@ -13,7 +13,7 @@
         <v-toolbar-title>Create New account</v-toolbar-title>
           </v-toolbar>
             <v-card-text>
-              <v-form @submit.prevent="submitForm">
+              <v-form @submit="handlSubmit">
                 <v-text-field
                   label="Your username"
                   v-model="username"
@@ -41,7 +41,7 @@
             </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" type="submit">Create Account </v-btn>
+            <v-btn color="primary" type="submit" @submit="handleSubmit">Create Account </v-btn>
             <v-btn color="error" to="/">cancel</v-btn>
           </v-card-actions>
         </v-card>
@@ -53,6 +53,8 @@
 import LoginOrSignupLayout from '../layouts/LoginOrSignupLayout'
 
 export default {
+  name: 'Register',
+
   components: {
     LoginOrSignupLayout
   },
@@ -69,16 +71,8 @@ export default {
     }
   },
   methods: {
-    submitForm () {
-      this.$axios.post('/api/users', {
-        username: this.username,
-        email: this.email,
-        password: this.password
-      }).then(response => {
-        console.log(response)
-      }).catch(error => {
-        console.log(error)
-      })
+    handleSubmit () {
+      console.log('submitted')
     }
   }
 }
