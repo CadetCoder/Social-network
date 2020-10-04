@@ -13,12 +13,13 @@
         <v-toolbar-title>Create New account</v-toolbar-title>
           </v-toolbar>
             <v-card-text>
-              <v-form @submit="handlSubmit">
+              <v-form>
                 <v-text-field
                   label="Your username"
                   v-model="username"
                   prepend-icon="mdi-account-circle"
                   type="text"
+                  required
                 ></v-text-field>
 
                 <v-text-field
@@ -26,6 +27,7 @@
                   v-model= "email"
                   prepend-icon= "mdi-mail"
                   type= "text"
+                  required
                 >
                 </v-text-field>
                 <v-text-field
@@ -35,13 +37,14 @@
                 prepend-icon="mdi-lock"
                 :append-icon= "showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                 @click:append= "showPassword = !showPassword"
-                required
               />
               </v-form>
             </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" type="submit" @submit="handleSubmit">Create Account </v-btn>
+            <v-btn color="primary" type="submit">
+              Create Account
+            </v-btn>
             <v-btn color="error" to="/">cancel</v-btn>
           </v-card-actions>
         </v-card>
@@ -71,9 +74,7 @@ export default {
     }
   },
   methods: {
-    handleSubmit () {
-      console.log('submitted')
-    }
+    //
   }
 }
 </script>
