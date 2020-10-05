@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VuePwaInstallPlugin from 'vue-pwa-install'
+import '../axios'
 
 Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin)
 

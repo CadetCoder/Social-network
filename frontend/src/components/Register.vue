@@ -59,11 +59,13 @@ export default {
   name: 'Register',
   data: () => ({
     showPassword: false,
-    userName: '',
-    email: '',
-    password: '',
     dataSignupS: ''
   }),
+  dataSignup: {
+    userName: '',
+    email: '',
+    password: ''
+  },
   props: {
     source: {
       type: String,
@@ -73,7 +75,9 @@ export default {
   methods: {
     submitSignup () {
       this.dataSignup = JSON.stringify(this.dataSignup)
-      axios.post('http://localhost:3000/api/auth/signup', this.dataSignupS, { headers: { 'Content-Type': 'application/json' } })
+      axios.post('register',
+      this.dataSignupS,
+      { headers: { 'Content-Type': 'application/json' } })
     }
   }
 }
