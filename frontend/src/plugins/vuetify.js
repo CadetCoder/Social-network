@@ -16,7 +16,7 @@ Vue.use(TiptapVuetifyPlugin, {
 
 export default new Vuetify({
   theme: {
-    dark: false,
+    dark: true,
     themes: {
       dark: {
         primary: '#333333',

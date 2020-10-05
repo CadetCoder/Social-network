@@ -1,15 +1,15 @@
 <template>
-  <DashboardMainPage>
+  <DashboardLayout>
     <Feeds />
-  </DashboardMainPage>
+  </DashboardLayout>
 </template>
 
 <script>
-import DashboardMainPage from '../layouts/DashboardMainPage'
+import DashboardLayout from '../layouts/DashboardLayout'
 import Feeds from '../components/Feeds'
 export default {
   components: {
-    DashboardMainPage,
+    DashboardLayout,
     Feeds
   }
 }

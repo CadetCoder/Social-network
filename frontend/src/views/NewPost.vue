@@ -1,15 +1,15 @@
 <template>
-  <DashboardMainPage>
+  <DashboardLayout>
     <new-post />
-  </DashboardMainPage>
+  </DashboardLayout>
 </template>
 <script>
 import NewPost from '../components/NewPost.vue'
-import DashboardMainPage from '../layouts/DashboardMainPage'
+import DashboardLayout from '../layouts/DashboardLayout'
 export default {
   components: {
     NewPost,
-    DashboardMainPage
+    DashboardLayout
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-<v-main>
+<div>
     <v-col
       cols="12"
       sm="8"
@@ -39,13 +39,16 @@
         </v-card-actions>
       </v-card>
     </v-col>
-</v-main>
+</div>
 </template>
 <script>
 export default {
   name: 'Login',
   data: () => ({
-    showPassword: false
+    showPassword: false,
+    username: '',
+    email: '',
+    password: ''
   }),
   props: {
     source: {

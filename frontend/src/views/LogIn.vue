@@ -1,7 +1,7 @@
 <template>
- <LoginOrSignupLayout>
+  <LoginOrSignupLayout>
     <Login />
-</LoginOrSignupLayout>
+  </LoginOrSignupLayout>
 </template>
 
 <script>
