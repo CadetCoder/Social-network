@@ -34,7 +34,11 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary">Login</v-btn>
+          <v-btn color="primary"
+          @click="submitLogIn"
+          >
+          Login
+          </v-btn>
           <v-btn color="error" to="/">Cancel</v-btn>
         </v-card-actions>
       </v-card>
@@ -47,13 +51,20 @@ export default {
   data: () => ({
     showPassword: false,
     username: '',
-    email: '',
     password: ''
   }),
   props: {
     source: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    submitLogIn () {
+      this.$emit ('login', {
+        userName: this.username,
+        password: this.password
+      })
     }
   }
 }
