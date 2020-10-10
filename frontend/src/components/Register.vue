@@ -1,9 +1,7 @@
 <template>
-  <div>
     <v-col
-      cols="12"
-      sm="8"
-      md="4"
+      sm="12"
+      md="8"
     >
       <v-card class="elevation-12">
         <v-toolbar
@@ -16,7 +14,7 @@
               <v-form v-model="valid">
                 <v-text-field
                   label="Your username"
-                  v-model="dataSignup.userName"
+                  v-model="userName"
                   prepend-icon="mdi-account-circle"
                   type="text"
                   required
@@ -24,19 +22,19 @@
 
                 <v-text-field
                   label="Your email address"
-                  v-model="dataSignup.email"
+                  v-model="email"
                   prepend-icon="mdi-mail"
-                  type= "text"
+                  type="text"
                   required
                 >
                 </v-text-field>
                 <v-text-field
-                :type= "showPassword ? 'text' : 'password' "
-                label= "Your password"
-                v-model= "dataSignup.password"
+                :type="showPassword ? 'text' : 'password' "
+                label="Your password"
+                v-model="password"
                 prepend-icon="mdi-lock"
-                :append-icon= "showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                @click:append= "showPassword = !showPassword"
+                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append="showPassword = !showPassword"
               />
               </v-form>
             </v-card-text>
@@ -49,35 +47,34 @@
           </v-card-actions>
         </v-card>
       </v-col>
-  </div>
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
-  name: 'Register',
-  data: () => ({
-    showPassword: false,
-    dataSignupS: ''
-  }),
-  dataSignup: {
-    userName: '',
-    email: '',
-    password: ''
-  },
   props: {
     source: {
       type: String,
       default: ''
     }
   },
+  data () {
+    return {
+      showPassword: false,
+      dataSignupS: '',
+      userName: this.source,
+      email: '',
+      password: '',
+      valid: true
+    }
+  },
   methods: {
     submitSignup () {
-      this.dataSignup = JSON.stringify(this.dataSignup)
-      axios.post('register',
-      this.dataSignupS,
-      { headers: { 'Content-Type': 'application/json' } })
+      this.$emit('signup', {
+        userName: this.userName,
+        email: this.email,
+        password: this.password
+      })
     }
   }
 }
