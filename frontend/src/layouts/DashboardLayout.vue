@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn text rounded to="/register">Sign Up</v-btn>
-        <v-btn text rounded to="/log-in">Log In</v-btn>
+        <v-btn text rounded to="/login">Log In</v-btn>
       </v-toolbar-items>
     </v-app-bar>
       <slot/>

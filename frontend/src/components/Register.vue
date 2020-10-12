@@ -61,8 +61,7 @@ export default {
   data () {
     return {
       showPassword: false,
-      dataSignupS: '',
-      userName: this.source,
+      userName: '',
       email: '',
       password: '',
       valid: true

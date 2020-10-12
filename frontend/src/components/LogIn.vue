@@ -18,13 +18,16 @@
             <v-text-field
               label="Username"
               name="login"
+              v-model="username"
               prepend-icon="mdi-account-circle"
               type="text"
+              required
             ></v-text-field>
 
             <v-text-field
             :type="showPassword ? 'text' : 'password' "
             label="Password"
+            v-model="password"
             prepend-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="showPassword = !showPassword"
@@ -34,8 +37,10 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary"
-          @click="submitLogIn"
+          <v-btn
+          type="login"
+          color="primary"
+          @click="submitLogIn()"
           >
           Login
           </v-btn>
@@ -47,16 +52,17 @@
 </template>
 <script>
 export default {
-  name: 'Login',
-  data: () => ({
-    showPassword: false,
-    username: '',
-    password: ''
-  }),
   props: {
     source: {
       type: String,
       default: ''
+    }
+  },
+  data () {
+    return {
+      showPassword: false,
+      username: '',
+      password: ''
     }
   },
   methods: {
