@@ -4,7 +4,6 @@ import Home from '../views/Home.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VuePwaInstallPlugin from 'vue-pwa-install'
-import '../axios'
 
 Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin)
 
@@ -36,6 +35,11 @@ const routes = [
     path: '/new-post',
     name: 'newpost',
     component: () => import('../views/NewPost.vue')
+  },
+  {
+    path: '/post',
+    name: 'post',
+    component: () => import('../views/Post.vue')
   }
 ]
 

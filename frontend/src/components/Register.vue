@@ -1,6 +1,7 @@
 <template>
     <v-col
-      sm="12"
+      cols="12"
+      sm="8"
       md="8"
     >
       <v-card class="elevation-12">

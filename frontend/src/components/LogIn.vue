@@ -1,9 +1,8 @@
 <template>
-<div>
     <v-col
       cols="12"
       sm="8"
-      md="4"
+      md="8"
     >
       <v-card class="elevation-12">
         <v-toolbar
@@ -48,7 +47,6 @@
         </v-card-actions>
       </v-card>
     </v-col>
-</div>
 </template>
 <script>
 export default {
