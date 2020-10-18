@@ -1,15 +1,18 @@
 <template>
   <TopHeader>
-    <New-post />
+    <Moderation />
   </TopHeader>
 </template>
+
 <script>
-import NewPost from '../components/NewPost.vue'
+import Moderation from '../components/Modify'
 import TopHeader from '../layouts/TopHeader'
 export default {
+  name: 'Modify',
   components: {
-    NewPost,
-    TopHeader
+  TopHeader,
+  Moderation
   }
 }
+
 </script>

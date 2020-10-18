@@ -2,11 +2,8 @@
   <v-main>
     <v-app-bar secondary dark>
       <v-toolbar-title
-      class="logo-title"
-      text>
-        <router-link
-          :to="{name: 'home'}">
-          Groupomania</router-link>
+        text>
+        Groupomania
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -87,8 +84,4 @@
 
 <style lang="scss" scoped>
 
-.logoTitle {
-  color: inherit;
-  text-decoration: none;
-}
 </style>>

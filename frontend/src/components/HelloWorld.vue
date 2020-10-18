@@ -1,5 +1,10 @@
 <template>
    <v-main>
+    <v-col
+      cols="12"
+      sm="8"
+      md="8"
+    >
      <v-layout
      text-xs-center
      wrap
@@ -23,16 +28,14 @@
         </p>
       </v-flex>
      </v-layout>
+    </v-col>
    </v-main>
 </template>
 
 <style>
-h1 {
-    color: #ECEFF1;
+h1 p {
+    color: inherit;
   }
-p{
-  color: #ECEFF1;
-}
 .bg-img{
   background-image: url('../assets/bg-building.jpg');
   opacity: 10%;

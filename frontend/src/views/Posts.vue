@@ -1,19 +1,15 @@
 <template>
-  <DashboardLayout>
-    <Post
-      v-for="(post, index) in posts"
-      :key="index"
-      :title="post.title"
-    />
-  </DashboardLayout>
+  <TopHeader>
+    <Post />
+  </TopHeader>
 </template>
 
 <script>
-import DashboardLayout from '../layouts/DashboardLayout'
+import TopHeader from '../layouts/TopHeader'
 import Post from '../components/Post'
 export default {
   components: {
-    DashboardLayout,
+    TopHeader,
     Post
   },
   data: () => ({

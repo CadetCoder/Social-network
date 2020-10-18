@@ -1,5 +1,5 @@
 <template>
-    <div class="head ">
+    <div>
         <v-navigation-drawer
             v-model="drawer"
             color="#616161"
@@ -15,6 +15,7 @@
             <v-list dense nav class="py-0 ">
                 <v-list-item two-line class="px-0 ">
                     <v-list-item-avatar>
+                        <v-img src="../assets/logo-white.png" contain></v-img>
                     </v-list-item-avatar>
 
                     <v-list-item-content>
@@ -42,12 +43,12 @@
                     </v-list-item-content>
                 </v-list-item>
 
-                <v-list-item v-if="this.modo==1">
+                <v-list-item v-if="this.mode==1">
                     <v-list-item-icon>
                         <v-icon>mdi-cog-outline</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content @click="moderation" class="link">
-                        <v-list-item-title>edit</v-list-item-title>
+                        <v-list-item-title>Moderation</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
 
@@ -55,7 +56,7 @@
                     <v-list-item-icon>
                         <v-icon>mdi-exit-to-app</v-icon>
                     </v-list-item-icon>
-                    <v-list-item-content @click="logout" class="lien">
+                    <v-list-item-content @click="logout" class="link">
                         <v-list-item-title>Sign out</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
@@ -69,12 +70,24 @@ export default {
     name: 'TopHeader',
     data () {
         return {
-            modo: '',
+            mode: '',
             drawer: true,
             items: [
-                { title: 'Home', icon: 'mdi-home-outline', link: '/' },
-                { title: 'Profile', icon: 'mdi-account-circle', link: '/Profile' },
-                { title: 'Posts', icon: 'mdi-view-dashboard-outline', link: '/Posts' }
+              {
+                title: ' Home',
+                icon: 'mdi-home-outline',
+                link: '/'
+              },
+              {
+                title: 'Profile',
+                icon: 'mdi-account-circle',
+                link: '/profile'
+              },
+              {
+                title: 'Posts',
+                icon: 'mdi-view-dashboard-outline',
+                link: '/posts'
+              }
             ]
         }
     },
@@ -86,11 +99,11 @@ export default {
              this.$router.push('/')
         },
         moderation () {
-            this.$router.push('/Accueil/Moderation')
+            this.$router.push('/Moderation')
         }
     },
     mounted () {
-        this.modo = localStorage.moderation
+        this.mode = localStorage.moderation
     }
 }
 </script>
@@ -108,7 +121,7 @@ export default {
     .menu__header{
         position: fixed!important
     }
-    .lien{
+    .link{
         cursor: pointer;
     }
 </style>

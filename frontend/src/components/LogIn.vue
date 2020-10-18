@@ -13,7 +13,8 @@
         <v-toolbar-title>Login</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
-          <v-form @submit.prevent="submitForm">
+          <v-form @submit.prevent="submitLogin"
+          v-model="valid">
             <v-text-field
               label="Username"
               name="login"
@@ -37,7 +38,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-          type="login"
+          type="submit"
           color="primary"
           @click="submitLogIn()"
           >
@@ -60,7 +61,8 @@ export default {
     return {
       showPassword: false,
       username: '',
-      password: ''
+      password: '',
+      valid: true
     }
   },
   methods: {

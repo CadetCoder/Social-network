@@ -10,12 +10,12 @@ Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin)
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: Home
   },
   {
     path: '/register',
-    name: 'register',
+    name: 'Register',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: () => import(/* webpackChunkName: "LogIn" */'../views/LogIn.vue')
   },
   {
@@ -33,13 +33,13 @@ const routes = [
   },
   {
     path: '/new-post',
-    name: 'newpost',
+    name: 'Newpost',
     component: () => import('../views/NewPost.vue')
   },
   {
-    path: '/post',
-    name: 'post',
-    component: () => import('../views/Post.vue')
+    path: '/modify',
+    name: 'Modify',
+    component: () => import('../views/Modify.vue')
   }
 ]
 
