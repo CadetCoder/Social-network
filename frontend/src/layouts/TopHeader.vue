@@ -99,7 +99,7 @@ export default {
              this.$router.push('/')
         },
         moderation () {
-            this.$router.push('/Moderation')
+            this.$router.push({ path: 'Modify' })
         }
     },
     mounted () {

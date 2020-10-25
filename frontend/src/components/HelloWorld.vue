@@ -1,9 +1,10 @@
 <template>
    <v-main>
+     <div>
     <v-col
       cols="12"
       sm="8"
-      md="8"
+      md="4"
     >
      <v-layout
      text-xs-center
@@ -29,6 +30,7 @@
       </v-flex>
      </v-layout>
     </v-col>
+     </div>
    </v-main>
 </template>
 

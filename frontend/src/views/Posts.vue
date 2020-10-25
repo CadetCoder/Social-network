@@ -1,6 +1,11 @@
 <template>
   <TopHeader>
-    <Post />
+    <Post
+      v-for="(post, index) in posts"
+      :key="index"
+      :title="post.title"
+      :comments="post.comments"
+    />
   </TopHeader>
 </template>
 
@@ -14,7 +19,8 @@ export default {
   },
   data: () => ({
     posts: [{
-      title: 'New Post'
+      title: 'New Post',
+      comments: ''
     }]
   })
 }

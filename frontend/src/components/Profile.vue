@@ -23,14 +23,38 @@
                 <v-card-title>Edit my profile</v-card-title>
                 <v-card-text>
                     <v-form ref="form" v-model="valid">
-                        <v-text-field v-model="dataUp.firstName" :rules="nameRules" label="First Name" prepend-icon="mdi-account-circle" required></v-text-field>
-                        <v-text-field  v-model="dataUp.lastName" :rules="nameRules" label="Last Name" prepend-icon="mdi-account-circle" required></v-text-field>
-                        <v-text-field v-model="dataUp.email" :rules="emailRules" label="e-mail" prepend-icon="mdi-at" required></v-text-field>
+                        <v-text-field
+                            v-model="dataUp.firstName"
+                            :rules="nameRules"
+                            label="First Name" prepend-icon="mdi-account-circle"
+                            required>
+                        </v-text-field>
+                        <v-text-field
+                            v-model="dataUp.lastName"
+                            :rules="nameRules"
+                            label="Last Name" prepend-icon="mdi-account-circle"
+                            required>
+                        </v-text-field>
+                        <v-text-field
+                            v-model="dataUp.email"
+                            :rules="emailRules"
+                            label="e-mail"
+                            prepend-icon="mdi-at"
+                            required>
+                        </v-text-field>
                     </v-form>
                 </v-card-text>
                 <v-card-actions>
-                    <v-btn text @click="dialogUp=false">Cancel</v-btn>
-                    <v-btn text :disabled="!valid" @click="updateUser">Update</v-btn>
+                    <v-btn text
+                        @click="dialogUp=false">
+                        Cancel
+                    </v-btn>
+                    <v-btn
+                    text
+                        :disabled="!valid"
+                        @click="updateUser">
+                        Update
+                    </v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>

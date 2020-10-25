@@ -1,0 +1,59 @@
+[] Home page
+  [] Navigation
+    [] login button
+    [] signup button
+  [] Main section
+    [] Welcome message sections
+    [] Company Logo
+  [] footer
+    [] social media buttons
+    [] trademark
+    [] slogan section
+
+[] Posts Page
+  [] Navigation
+    [] User Profile button
+    [] Company Name
+    [] Company logo
+    [] Logout button
+  [] Main section
+    [] Create Post button
+    [] List of posts
+      [] posted by user name
+      [] post time
+      [] Title of the post
+      [] Body "content"
+    [] Back to top button
+
+[] Single poste
+  [] Navigation
+    [] Navigation
+    [] User Profile button
+    [] Company Name
+    [] Company logo
+    [] Logout button
+  [] Main section
+    [] Back button
+    [] posted by user name
+    [] post time
+    [] Title of the post
+    [] Body "content"
+    [] Read button
+
+[] Create Post
+    [] Navigation
+      [] User Profile button
+      [] Company Name
+      [] Company logo
+      [] Logout button
+    [] Main section
+      [] Text Post button
+        [] Title
+        [] Body "content"
+        [] Cancel Button
+      [] Media Post button
+        [] Title
+        [] Upload button
+        [] Post button
+        [] Cancel button
+
