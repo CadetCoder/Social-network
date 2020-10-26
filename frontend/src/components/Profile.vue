@@ -84,7 +84,6 @@
 
 <script>
 import TopHeader from '../layouts/TopHeader'
-import axios from 'axios'
 export default {
     name: 'Profile',
     data () {
@@ -117,19 +116,7 @@ export default {
         //
     },
     mounted () {
-        axios.get('http://localhost:3000/api/auth/', { headers: { Authorization: 'Bearer ' + localStorage.token } })
-            .then(response => {
-                const profil = JSON.parse(response.data)
-                this.dataGet.email = profil[0].email
-                this.dataGet.firstName = profil[0].firstName
-                this.dataGet.lastName = profil[0].lastName
-                this.dataUp.email = profil[0].email
-                this.dataUp.firstName = profil[0].firstName
-                this.dataUp.lastName = profil[0].lastName
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        //
     },
 
     components: {
