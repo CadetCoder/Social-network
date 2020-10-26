@@ -1,7 +1,8 @@
 <template>
     <v-main id="formPost">
-        <h1 class="ml-12">Posts</h1>
-        <v-card class="ma-3 ml-12">
+        <top-header />
+        <h1 class="ml-16">Posts</h1>
+        <v-card class="mx-auto" width="600">
             <v-card-title class="mb-3">
                 <h2> New Post </h2>
             </v-card-title>
@@ -26,17 +27,18 @@
             </v-card-text>
 
             <v-card-actions>
-                <v-between
+                <v-btn
                     :disabled="!valid"
                     class="success"
                     @click="createPost">
                     Post
-                </v-between>
+                </v-btn>
             </v-card-actions>
         </v-card>
     </v-main>
 </template>
 <script>
+import TopHeader from '../layouts/TopHeader'
 export default {
     name: 'FormPost',
     data () {
@@ -57,8 +59,7 @@ export default {
             },
             dataPostS: '',
             msg: false,
-            message: '',
-            postItems: []
+            message: ''
         }
     },
     methods: {
@@ -67,7 +68,7 @@ export default {
         }
     },
     components: {
-
+        'top-header': TopHeader
     }
 }
 </script>

@@ -62,6 +62,7 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
+        <slot />
     </div>
 </template>
 

@@ -5,6 +5,7 @@
       cols="12"
       sm="8"
       md="4"
+      class="mx-auto"
     >
      <v-layout
      text-xs-center
@@ -20,7 +21,7 @@
       </v-flex>
 
       <v-flex mb-6>
-        <h1 class="display-2" font-weight-bold mb-3> Welcome to   Groupomania
+        <h1 class="display-2" font-weight-bold mb-3> Welcome to Groupomania
         </h1>
         <v-spacer></v-spacer>
         <p class="subheading font-weight-regular">

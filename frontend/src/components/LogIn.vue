@@ -4,7 +4,7 @@
       sm="8"
       md="8"
     >
-      <v-card class="elevation-12">
+      <v-card class="elevation-12" width="400">
         <v-toolbar
           blue-grey darken-3
           dark

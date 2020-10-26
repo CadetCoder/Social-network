@@ -1,14 +1,14 @@
-[] Home page
-  [] Navigation
-    [] login button
-    [] signup button
-  [] Main section
-    [] Welcome message sections
-    [] Company Logo
-  [] footer
-    [] social media buttons
-    [] trademark
-    [] slogan section
+[x] Home page
+  [x] Navigation
+    [x] login button
+    [x] signup button
+  [x] Main section
+    [x] Welcome message sections
+    [x] Company Logo
+  [x] footer
+    [x] social media buttons
+    [x] trademark
+    [x] slogan section
 
 [] Posts Page
   [] Navigation

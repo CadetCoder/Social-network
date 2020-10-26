@@ -1,7 +1,7 @@
 <template>
     <div id="profile" class="d-flex justify-center">
         <top-header/>
-        <v-card class="ma-12" min-width="300px" flat>
+        <v-card class="ma-12" min-width="400px" flat>
             <v-card-title class="my-3" >
                 <h1>My Profile</h1>
             </v-card-title>
@@ -114,34 +114,7 @@ export default {
         }
     },
     methods: {
-        deleteUser () {
-            axios.delete('http://localhost:3000/api/auth/', { headers: { Authorization: 'Bearer ' + localStorage.token } })
-            .then(response => {
-                const rep = JSON.parse(response.data)
-                console.log(rep)
-                localStorage.userId = ''
-                localStorage.token = ''
-                this.$router.push('/')
-            })
-            .catch(error => {
-                console.log(error)
-                this.msg = error
-            })
-        },
-        updateUser () {
-            this.dataUpS = JSON.stringify(this.dataUp)
-            axios.put('http://localhost:3000/api/auth/', this.dataUpS, { headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + localStorage.token } })
-            .then(response => {
-                const rep = JSON.parse(response.data)
-                console.log(rep)
-                this.dialogUp = false
-                window.location.assign('http://localhost:8080/Profile')
-            })
-            .catch(error => {
-                console.log(error)
-                this.msg = error
-            })
-        }
+        //
     },
     mounted () {
         axios.get('http://localhost:3000/api/auth/', { headers: { Authorization: 'Bearer ' + localStorage.token } })
