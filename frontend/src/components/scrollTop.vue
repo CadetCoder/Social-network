@@ -1,4 +1,4 @@
-v.<template>
+<template>
   <v-btn
             v-scroll="onScroll"
             v-show="fab"

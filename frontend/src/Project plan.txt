@@ -11,7 +11,7 @@
     [x] slogan section
 
 [] Posts Page
-  [] Navigation
+  [x] Navigation
     [] User Profile button
     [] Company Name
     [] Company logo
