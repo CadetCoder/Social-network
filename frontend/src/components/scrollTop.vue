@@ -10,7 +10,10 @@
             color="primary"
             @click="toTop"
           >
-            <v-icon>keyboard_arrow_up</v-icon>
+            <v-icon
+              medium
+              >mdi-chevron-up-circle
+            </v-icon>
     </v-btn>
 </template>
 

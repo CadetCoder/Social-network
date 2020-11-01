@@ -1,5 +1,5 @@
 <template>
-<v-div>
+<div>
     <top-header/>
     <div class="mt-12">
     <v-card class="mx-auto fill-height" width="600">
@@ -116,12 +116,11 @@
             </v-tabs>
         </v-card>
     </div>
-</v-div>
+</div>
 </template>
 <script>
 import TopHeader from '../components/TopHeader'
 export default {
-    name: 'FormPost',
     data () {
         return {
             tab: null,
@@ -147,6 +146,7 @@ export default {
     methods: {
         createPost () {
           this.$router.push('dashboard')
+          console.log('Post created!')
         }
     },
     components: {
