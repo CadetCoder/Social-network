@@ -5,7 +5,9 @@
     <div class="ml-12">
       <h1 class="ma-4">Posts</h1>
       <v-container>
-        <v-btn class="ma-3" @click="postForm">Create a post</v-btn>
+        <v-btn class="ma-3" @click="postForm">
+          Create a post
+        </v-btn>
         <!-- Posts -->
         <v-card
           class="ma-3 mt-6"

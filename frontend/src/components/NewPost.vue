@@ -1,41 +1,44 @@
 <template>
-    <v-main id="formPost">
-        <top-header />
-        <h1 class="ml-16">Posts</h1>
-        <v-card class="mx-auto" width="600">
-            <v-card-title class="mb-3">
-                <h2> New Post </h2>
-            </v-card-title>
+<v-main>
+    <top-header/>
+    <v-card>
+        <v-card-title class="text-center justify-center py-6">
+            <h1 class="font-weight-bold display-3 basil--text">
+                Create a post
+            </h1>
+        </v-card-title>
+                <!--- Tabs --->
+        <v-tabs
+            v-model="tab"
+            background-color="transparent"
+            color="white"
+            grow
+        >
 
-            <v-card-text>
-                <v-form ref="form" class="ma-3" v-model="valid" >
-                    <v-text-field
-                        v-model="dataPost.title"
-                        :rules="titleRules"
-                        :counter="50"
-                        label="Title"
-                        autofocus
-                        required>
-                    </v-text-field>
-                    <v-textarea
-                        v-model="dataPost.content"
-                        :rules="contentRules"
-                        label="Content"
-                        required>
-                    </v-textarea>
-                </v-form>
-            </v-card-text>
+            <v-tab
+                v-for="item in items"
+                :key="item"
+            >
+                {{ item }}
+            </v-tab>
+        </v-tabs>
 
-            <v-card-actions>
-                <v-btn
-                    :disabled="!valid"
-                    class="success"
-                    @click="createPost">
-                    Post
-                </v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-main>
+        <v-tab-items v-model="tab">
+            <v-tab-item
+                v-for="item in items"
+                :key="item"
+            >
+                <v-card
+                    flat
+                >
+
+                </v-card>
+
+             </v-tab-item>
+
+        </v-tab-items>
+    </v-card>
+</v-main>
 </template>
 <script>
 import TopHeader from '../components/TopHeader'
@@ -43,6 +46,7 @@ export default {
     name: 'FormPost',
     data () {
         return {
+            tab: null,
             valid: true,
             newPost: '',
             titleRules: [
@@ -59,7 +63,11 @@ export default {
             },
             dataPostS: '',
             msg: false,
-            message: ''
+            message: '',
+            items: [
+                'Post',
+                'Images'
+            ]
         }
     },
     methods: {
