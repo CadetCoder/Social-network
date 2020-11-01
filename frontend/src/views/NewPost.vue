@@ -1,15 +1,15 @@
 <template>
-  <TopHeader>
+  <top-header>
     <New-post />
-  </TopHeader>
+  </top-header>
 </template>
 <script>
 import NewPost from '../components/NewPost.vue'
-import TopHeader from '../layouts/TopHeader'
+import TopHeader from '../components/TopHeader'
 export default {
   components: {
     NewPost,
-    TopHeader
+    'top-header': TopHeader
   }
 }
 </script>

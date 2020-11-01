@@ -1,15 +1,15 @@
 <template>
-  <TopHeader>
+  <top-header>
     <Profile />
-  </TopHeader>
+  </top-header>
 </template>
 
 <script>
-import TopHeader from '../layouts/TopHeader'
+import TopHeader from '../components/TopHeader'
 import Profile from '../components/Profile'
 export default {
   components: {
-    TopHeader,
+    'top-header': TopHeader,
     Profile
   }
 }

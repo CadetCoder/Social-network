@@ -85,9 +85,9 @@ export default {
                 link: '/profile'
               },
               {
-                title: 'Posts',
+                title: 'Dashboard',
                 icon: 'mdi-view-dashboard-outline',
-                link: '/posts'
+                link: '/dashboard'
               }
             ]
         }
@@ -104,7 +104,7 @@ export default {
         }
     },
     mounted () {
-        this.mode = localStorage.moderation
+        //
     }
 }
 </script>

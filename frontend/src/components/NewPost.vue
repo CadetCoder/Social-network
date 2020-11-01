@@ -38,7 +38,7 @@
     </v-main>
 </template>
 <script>
-import TopHeader from '../layouts/TopHeader'
+import TopHeader from '../components/TopHeader'
 export default {
     name: 'FormPost',
     data () {
@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         createPost () {
-          this.$emit.unshift('postItems')
+          //
         }
     },
     components: {

@@ -17,7 +17,7 @@
     [] Company logo
     [] Logout button
   [] Main section
-    [] Create Post button
+    [x] Create Post button
     [] List of posts
       [] posted by user name
       [] post time

@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import TopHeader from '../layouts/TopHeader'
+import TopHeader from '../components/TopHeader'
 export default {
     name: 'Profile',
     data () {
