@@ -1,7 +1,8 @@
 <template>
-<v-main>
+<v-div>
     <top-header/>
-    <v-card>
+    <div class="mt-12">
+    <v-card class="mx-auto fill-height" width="600">
         <v-card-title class="text-center justify-center py-6">
             <h1 class="font-weight-bold display-3 basil--text">
                 Create a post
@@ -9,36 +10,113 @@
         </v-card-title>
                 <!--- Tabs --->
         <v-tabs
-            v-model="tab"
             background-color="transparent"
             color="white"
             grow
+            v-model="tab"
         >
 
-            <v-tab
-                v-for="item in items"
-                :key="item"
-            >
-                {{ item }}
+            <v-tab>
+                <v-icon
+                    class="mr-2"
+                    medium
+                    color="blue darken-2">
+                    mdi-message-text
+                </v-icon>
+                    Post
             </v-tab>
-        </v-tabs>
 
-        <v-tab-items v-model="tab">
-            <v-tab-item
-                v-for="item in items"
-                :key="item"
+            <v-tab>
+                <v-icon
+                    class="mr-2"
+                    medium
+                    color="blue darken-2">
+                    mdi-image-plus
+                </v-icon>
+                    Image
+            </v-tab>
+
+        <v-tab-item>
+            <v-card
+                flat
             >
-                <v-card
-                    flat
-                >
+                <v-card-text>
+                    <v-form ref="form" class="ma-3" v-model="valid" >
+                        <v-text-field
+                            v-model="dataPost.title"
+                            :rules="titleRules"
+                            :counter="50"
+                            label="Title"
+                            autofocus
+                            required
+                            outlined
+                            class="mb-3"
+                            >
+                        </v-text-field>
+                        <v-card>
+                        <v-textarea
+                            outlined
+                            v-model="dataPost.content"
+                            :rules="contentRules"
+                            label="Content"
+                            required>
+                        </v-textarea>
+                        </v-card>
+                    </v-form>
+            </v-card-text>
 
-                </v-card>
+            <v-card-actions>
+                <v-btn
+                    :disabled="!valid"
+                    class="success"
+                    @click="createPost">
+                    Post
+                </v-btn>
+            </v-card-actions>
+            </v-card>
+            </v-tab-item>
 
-             </v-tab-item>
+             <v-tab-item>
+            <v-card
+                flat
+            >
+                <v-card-text>
+                    <v-form ref="form" class="ma-3" v-model="valid" >
+                        <v-text-field
+                            v-model="dataPost.title"
+                            :rules="titleRules"
+                            :counter="50"
+                            label="Title"
+                            outlined
+                            autofocus
+                            required>
+                        </v-text-field>
+                        <v-file-input
+                            class="mt-6"
+                            label="Upload image"
+                            outlined
+                            prepend-icon="mdi-camera"
+                            required
+                        >
+                        </v-file-input>
+                    </v-form>
+            </v-card-text>
 
-        </v-tab-items>
-    </v-card>
-</v-main>
+            <v-card-actions>
+                <v-btn
+                    :disabled="!valid"
+                    class="success"
+                    @click="createPost">
+                    Post
+                </v-btn>
+            </v-card-actions>
+
+            </v-card>
+            </v-tab-item>
+            </v-tabs>
+        </v-card>
+    </div>
+</v-div>
 </template>
 <script>
 import TopHeader from '../components/TopHeader'
@@ -57,22 +135,18 @@ export default {
                 v => !!v || 'Content is required'
             ],
             dataPost: {
-            title: '',
+                title: '',
                 content: '',
                 userId: localStorage.userId
             },
             dataPostS: '',
             msg: false,
-            message: '',
-            items: [
-                'Post',
-                'Images'
-            ]
+            message: ''
         }
     },
     methods: {
         createPost () {
-          //
+          this.$router.push('dashboard')
         }
     },
     components: {
