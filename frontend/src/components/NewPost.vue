@@ -106,7 +106,7 @@
                 <v-btn
                     :disabled="!valid"
                     class="success"
-                    @click="createPost">
+                    @click="createNewPost">
                     Post
                 </v-btn>
             </v-card-actions>
@@ -144,7 +144,7 @@ export default {
         }
     },
     methods: {
-        createPost () {
+        createNewPost () {
           this.$router.push('dashboard')
           console.log('Post created!')
         }
