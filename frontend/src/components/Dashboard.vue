@@ -85,7 +85,8 @@ export default {
         },
         {
           title: 'hello',
-          unserName: 'another reddit user'
+          unserName: 'another reddit user',
+          content: 'New post ;)'
         },
         {
           title: 'hello',
