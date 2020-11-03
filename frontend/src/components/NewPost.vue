@@ -1,6 +1,5 @@
 <template>
 <div>
-    <top-header/>
     <div class="mt-12">
     <v-card class="mx-auto fill-height" width="600">
         <v-card-title class="text-center justify-center py-6">
@@ -41,7 +40,7 @@
                 flat
             >
                 <v-card-text>
-                    <v-form ref="form" class="ma-3" v-model="valid" >
+                    <v-form ref="form" class="ma-3"             v-model="valid" >
                         <v-text-field
                             v-model="dataPost.title"
                             :rules="titleRules"
@@ -69,7 +68,7 @@
                 <v-btn
                     :disabled="!valid"
                     class="success"
-                    @click="createPost">
+                    @click="createNewPost">
                     Post
                 </v-btn>
             </v-card-actions>
@@ -119,7 +118,6 @@
 </div>
 </template>
 <script>
-import TopHeader from '../components/TopHeader'
 export default {
     data () {
         return {
@@ -144,13 +142,12 @@ export default {
         }
     },
     methods: {
-        createNewPost () {
-          this.$router.push('dashboard')
-          console.log('Post created!')
+      createNewPost () {
+        this.$emit('create-new-post', this.dataPost)
+        console.log('Post created!')
         }
     },
     components: {
-        'top-header': TopHeader
     }
 }
 </script>

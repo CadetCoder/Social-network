@@ -5,9 +5,20 @@
     <div class="ml-12">
       <h1 class="ma-4">Posts</h1>
       <v-container>
-        <v-btn class="ma-3" @click="postForm">
+        <v-dialog
+          v-model="dialog"
+          max-width="600px">
+          <template v-slot:activator="{ on, attrs }">
+        <v-btn class="ma-3"
+          v-bind="attrs"
+          v-on="on">
           Create a post
         </v-btn>
+          </template>
+          <new-post
+            @create-new-post="addPost"
+          />
+        </v-dialog>
         <!-- Posts -->
         <v-card
           class="ma-3 mt-6"
@@ -53,7 +64,6 @@
                   comments
               </v-btn>
           </v-card-text>
-          <!--- comments -->
         </v-card>
       </v-container>
     </div>
@@ -63,13 +73,16 @@
 <script>
 import TopHeader from '../components/TopHeader'
 import scrollTop from '../components/scrollTop'
+import NewPost from '../components/NewPost'
 export default {
   components: {
     'top-header': TopHeader,
-    scrollTop
+    scrollTop,
+    NewPost
   },
   data () {
     return {
+      dialog: false,
       userName: '',
       allLikes: [],
       allComments: [],
@@ -84,9 +97,10 @@ export default {
           date: '1604155667381'
         },
         {
-          title: 'hello',
+          title: 'another hello',
           unserName: 'another reddit user',
-          content: 'New post ;)'
+          content: 'New post',
+          date: ''
         },
         {
           title: 'hello',
@@ -106,6 +120,10 @@ export default {
   methods: {
     postForm () {
       this.$router.push('new-post')
+    },
+    addPost (additionalPost) {
+      this.allPosts.unshift(additionalPost)
+      this.dialog = false
     }
   },
   filters: {
