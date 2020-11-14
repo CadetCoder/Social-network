@@ -152,17 +152,17 @@ export default {
     methods: {
       createNewPost () {
         this.$emit('create-new-post', this.dataPost)
-        localStorage.clear()
-        console.log('Post created!')
-				},
-			imageUpload (e) {
-				console.log(e)
-				const fileReader = new FileReader()
-				fileReader.readAsDataURL(e)
-				fileReader.onload = (e) => {
-					console.log (fileReader.result)
-					this.imageUrl = e.target.result
-				}
+          localStorage.clear()
+          console.log('Post created!')
+          },
+        imageUpload (e) {
+          console.log(e)
+          const fileReader = new FileReader()
+          fileReader.readAsDataURL(e)
+          fileReader.onload = (e) => {
+              console.log (fileReader.result)
+              this.imageUrl = e.target.result
+          }
 			}
     },
     components: {
