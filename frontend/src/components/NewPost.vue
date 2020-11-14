@@ -40,7 +40,9 @@
                 flat
             >
                 <v-card-text>
-                    <v-form ref="form" class="ma-3"             v-model="valid" >
+                    <v-form ref="form"
+											class="ma-3"
+											v-model="valid" >
                         <v-text-field
                             v-model="dataPost.title"
                             :rules="titleRules"
@@ -65,12 +67,12 @@
             </v-card-text>
 
             <v-card-actions>
-                <v-btn
-                    :disabled="!valid"
-                    class="success"
-                    @click="createNewPost">
-                    Post
-                </v-btn>
+							<v-btn
+								:disabled="!valid"
+								class="success"
+								@click="createNewPost">
+									Post
+							</v-btn>
             </v-card-actions>
             </v-card>
             </v-tab-item>
@@ -79,40 +81,43 @@
             <v-card
                 flat
             >
-                <v-card-text>
-                    <v-form ref="form" class="ma-3" v-model="valid" >
-                        <v-text-field
-                            v-model="dataPost.title"
-                            :rules="titleRules"
-                            :counter="50"
-                            label="Title"
-                            outlined
-                            autofocus
-                            required>
-                        </v-text-field>
-                        <v-file-input
-                            class="mt-6"
-                            label="Upload image"
-                            outlined
-                            prepend-icon="mdi-camera"
-                            required
-                        >
-                        </v-file-input>
-                    </v-form>
-            </v-card-text>
+							<v-card-text>
+									<v-form ref="form" class="ma-3" v-model="valid" >
+											<v-text-field
+													v-model="dataPost.title"
+													:rules="titleRules"
+													:counter="50"
+													label="Title"
+													outlined
+													autofocus
+													required>
+											</v-text-field>
+											<v-file-input
+												type="file"
+												class="mt-6"
+												label="Upload image"
+												outlined
+												prepend-icon="mdi-camera"
+												required
+												accept="image/*"
+												@change="imageUpload"
+											>
+											</v-file-input>
+									</v-form>
+					</v-card-text>
 
-            <v-card-actions>
-                <v-btn
-                    :disabled="!valid"
-                    class="success"
-                    @click="createNewPost">
-                    Post
-                </v-btn>
-            </v-card-actions>
+					<v-card-actions>
+						<v-btn
+							:disabled="!valid"
+							class="success"
+							@click="createNewPost">
+							Post
+						</v-btn>
+					</v-card-actions>
 
-            </v-card>
-            </v-tab-item>
-            </v-tabs>
+					</v-card>
+					</v-tab-item>
+					</v-tabs>
         </v-card>
     </div>
 </div>
@@ -121,31 +126,44 @@
 export default {
     data () {
         return {
-            tab: null,
-            valid: true,
-            newPost: '',
-            titleRules: [
-                v => !!v || 'Title is required',
-                v => (v && v.length <= 50) || 'Title must be less than 50 characters'
-            ],
-            contentRules: [
-                v => !!v || 'Content is required'
-            ],
-            dataPost: {
-                title: '',
-                content: '',
-                userId: localStorage.userId
-            },
-            dataPostS: '',
-            msg: false,
-            message: ''
+          tab: null,
+          valid: true,
+          newPost: '',
+          titleRules: [
+              v => !!v || 'Title is required',
+              v => (v && v.length <= 50) || 'Title must be less than 50 characters'
+          ],
+          contentRules: [
+              v => !!v || 'Content is required'
+          ],
+          dataPost: {
+              title: '',
+							content: '',
+							image: null,
+              userId: localStorage.userId
+          },
+          dataPostS: '',
+          msg: false,
+          message: '',
+          image: null,
+          imageUrl: null
         }
     },
     methods: {
       createNewPost () {
         this.$emit('create-new-post', this.dataPost)
+        localStorage.clear()
         console.log('Post created!')
-        }
+				},
+			imageUpload (e) {
+				console.log(e)
+				const fileReader = new FileReader()
+				fileReader.readAsDataURL(e)
+				fileReader.onload = (e) => {
+					console.log (fileReader.result)
+					this.imageUrl = e.target.result
+				}
+			}
     },
     components: {
     }

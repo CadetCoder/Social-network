@@ -1,14 +1,14 @@
 <template>
-    <v-col
-      cols="12"
-      sm="8"
-      md="8"
-    >
-      <v-card class="elevation-12">
-        <v-toolbar
-          dark
-          flat
-        >
+  <v-col
+    cols="12"
+    sm="8"
+    md="8"
+  >
+    <v-card class="elevation-12">
+      <v-toolbar
+        dark
+        flat
+      >
         <v-toolbar-title>Create New account</v-toolbar-title>
           </v-toolbar>
             <v-card-text>
@@ -41,7 +41,11 @@
             </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" type="submit" @click="submitSignup()">
+            <v-btn
+              color="primary"
+              type="submit"
+              @click="submitSignup()"
+            >
               Create Account
             </v-btn>
             <v-btn color="error" to="/">cancel</v-btn>

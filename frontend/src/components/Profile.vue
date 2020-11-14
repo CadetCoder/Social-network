@@ -85,32 +85,32 @@
 <script>
 import TopHeader from '../components/TopHeader'
 export default {
-    name: 'Profile',
-    data () {
-        return {
-            dialogDel: false,
-            dialogUp: false,
-            msg: '',
-            dataGet: {
-                firstName: '',
-                lastName: '',
-                email: ''
-            },
-            dataUp: {
-                firstName: '',
-                lastName: '',
-                email: ''
-            },
-            dataUpS: '',
-            valid: true,
-            nameRules: [
-                v => !!v || 'Name required'
-            ],
-            emailRules: [
-                v => !!v || 'E-mail required',
-                v => /.+@.+\..+/.test(v) || 'E-mail invalid'
-            ]
-        }
+	name: 'Profile',
+	data () {
+		return {
+			dialogDel: false,
+			dialogUp: false,
+			msg: '',
+			dataGet: {
+				firstName: '',
+				lastName: '',
+				email: ''
+			},
+			dataUp: {
+				firstName: '',
+				lastName: '',
+				email: ''
+			},
+			dataUpS: '',
+			valid: true,
+			nameRules: [
+				v => !!v || 'Name required'
+			],
+			emailRules: [
+				v => !!v || 'E-mail required',
+				v => /.+@.+\..+/.test(v) || 'E-mail invalid'
+			]
+		}
     },
     methods: {
         //

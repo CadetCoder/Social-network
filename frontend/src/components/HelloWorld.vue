@@ -1,7 +1,6 @@
 <template>
    <v-main id="bg-img">
     <v-col
-      background-color="transparent"
       cols="12"
       sm="8"
       md="4"
@@ -20,7 +19,7 @@
           </v-img>
       </v-flex>
         <v-flex mb-6>
-          <h1 class="display-2 ma-6" font-weight-bold > Welcome to Groupomania
+            <h1 class="display-2 ma-6" font-weight-bold >Welcome to Groupomania
           </h1>
           <v-spacer></v-spacer>
           <p class="subheading font-weight-regular">

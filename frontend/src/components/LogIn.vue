@@ -13,7 +13,7 @@
         <v-toolbar-title>Login</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
-          <v-form @submit.prevent="submitLogin"
+          <v-form
           v-model="valid">
             <v-text-field
               label="Username"
@@ -42,7 +42,7 @@
           color="primary"
           @click="submitLogIn()"
           >
-          Login
+            Login
           </v-btn>
           <v-btn color="error" to="/">Cancel</v-btn>
         </v-card-actions>
