@@ -1,23 +1,24 @@
 <template>
-   <v-main id="bg-img">
+   <v-main class="bg-img">
     <v-col
       cols="12"
       sm="8"
       md="4"
       class="mx-auto"
     >
-     <v-layout
+     <v-card
       text-xs-center
       wrap
      >
-      <v-flex xs12>
+      <v-card xs12>
           <v-img
             :src="require('../assets/logo-main-white.png')"
             class="my-4"
             contain
-            height="200">
+            height="150">
           </v-img>
-      </v-flex>
+      </v-card>
+      <v-spacer></v-spacer>
         <v-flex mb-6>
             <h1 class="display-2 ma-6" font-weight-bold >Welcome to Groupomania
           </h1>
@@ -27,7 +28,7 @@
             <br>Please signup in order to have fun connection with your colleagues
           </p>
         </v-flex>
-     </v-layout>
+     </v-card>
     </v-col>
      </v-main>
 </template>
@@ -38,12 +39,12 @@
 h1 p {
     color: inherit;
   }
-#bg-img{
-  background-image: url('../assets/bg-building.jpg');
-  opacity: 10%;
-  height: 100%;
-  width: 0 auto;
-}
+.bg-img{
+  background-image: url('../assets/bg-teamwork.jpeg');
+  background-size: cover;
+  background-position: 50%;
+  height:100%
+  }
 a {
   text-decoration: none;
 }

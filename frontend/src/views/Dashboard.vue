@@ -2,6 +2,11 @@
   <v-main>
     <top-header/>
     <scrollTop />
+      <v-container class="fill-height">
+          <v-img
+            src="src/assets/logo-main-white.png">
+          </v-img>
+      </v-container>
     <div class="ml-12">
       <h1 class="ma-4">Posts</h1>
       <v-container>
@@ -79,6 +84,8 @@ export default {
       postId: '',
       dialogUpCom: false,
       dialogUpPost: false,
+      title: '',
+      description: '',
       allPosts: [
         {
           title: 'hello',

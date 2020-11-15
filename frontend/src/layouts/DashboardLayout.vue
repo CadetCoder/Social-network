@@ -1,6 +1,5 @@
-<template>
-  <v-main>
-    <v-app-bar secondary dark>
+<template><div>
+    <v-app-bar>
       <v-toolbar-title
         text>
         Groupomania
@@ -48,7 +47,7 @@
       </v-card-text>
     </v-card>
   </v-footer>
-  </v-main>
+  </div>
 </template>
 
 <script>

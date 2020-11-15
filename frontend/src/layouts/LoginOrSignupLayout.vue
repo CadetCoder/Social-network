@@ -1,5 +1,4 @@
 <template>
-<v-main>
     <v-container
       class="fill-height"
       fluid
@@ -11,5 +10,4 @@
         <slot/>
       </v-row>
     </v-container>
-  </v-main>
 </template>
