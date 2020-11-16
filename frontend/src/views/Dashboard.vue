@@ -4,6 +4,28 @@
     <scrollTop />
     <div class="ml-12">
       <h1 class="ma-4">Posts</h1>
+      <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Create a post
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item
+          v-for="(dropdown, index) in dropdown"
+          :key="index"
+          router
+          :to="dropdown.route"
+        >
+          <v-list-item-title>{{ dropdown.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
         <v-dialog
           v-model="dialog"
           max-width="600px">
@@ -64,6 +86,7 @@
 import TopHeader from '../components/TopHeader'
 import scrollTop from '../components/scrollTop'
 import NewPost from '../components/NewPost'
+
 export default {
   components: {
     'top-header': TopHeader,
@@ -81,6 +104,10 @@ export default {
       dialogUpPost: false,
       title: '',
       description: '',
+      dropdown: [
+        { title: 'text post', route: '/new-post' },
+        { title: 'multimedia post', route: '/multimediaPost' }
+      ],
       allPosts: [
         {
           title: 'hello',
