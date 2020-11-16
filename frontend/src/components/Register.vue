@@ -4,11 +4,11 @@
     sm="8"
     md="8"
   >
-    <v-card class="elevation-12">
-      <v-toolbar
-        dark
-        flat
-      >
+   <v-card class="elevation-12">
+    <v-toolbar
+      dark
+      flat
+    >
         <v-toolbar-title>Create New account</v-toolbar-title>
           </v-toolbar>
             <v-card-text>

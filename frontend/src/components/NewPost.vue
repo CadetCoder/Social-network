@@ -1,48 +1,20 @@
 <template>
-<div>
+  <div>
     <div class="mt-12">
-    <v-card class="mx-auto fill-height" width="600">
+      <v-card
+        class="mx-auto fill-height" width="600">
         <v-card-title class="text-center justify-center py-6">
-            <h1 class="font-weight-bold display-3 basil--text">
-                Create a post
+          <h1 class="font-weight-bold display-3 basil--text">
+            Create a new post
             </h1>
         </v-card-title>
-                <!--- Tabs --->
-        <v-tabs
-            background-color="transparent"
-            color="white"
-            grow
-            v-model="tab"
-        >
-
-            <v-tab>
-                <v-icon
-                    class="mr-2"
-                    medium
-                    color="blue darken-2">
-                    mdi-message-text
-                </v-icon>
-                    Post
-            </v-tab>
-
-            <v-tab>
-                <v-icon
-                    class="mr-2"
-                    medium
-                    color="blue darken-2">
-                    mdi-image-plus
-                </v-icon>
-                    Image
-            </v-tab>
-
-        <v-tab-item>
             <v-card
                 flat
             >
                 <v-card-text>
                     <v-form ref="form"
-											class="ma-3"
-											v-model="valid" >
+                    class="ma-3"
+                    v-model="valid" >
                         <v-text-field
                             v-model="dataPost.title"
                             :rules="titleRules"
@@ -52,6 +24,7 @@
                             required
                             outlined
                             class="mb-3"
+                            prepend-icon="mdi-folder"
                             >
                         </v-text-field>
                         <v-card>
@@ -60,7 +33,8 @@
                             v-model="dataPost.content"
                             :rules="contentRules"
                             label="Content"
-                            required>
+                            required
+                            prepend-icon="mdi-folder-edit">
                         </v-textarea>
                         </v-card>
                     </v-form>
@@ -70,54 +44,11 @@
 							<v-btn
 								:disabled="!valid"
 								class="success"
-								@click="createNewPost">
+								@click="submitTextPost">
 									Post
 							</v-btn>
             </v-card-actions>
             </v-card>
-            </v-tab-item>
-
-             <v-tab-item>
-            <v-card
-                flat
-            >
-							<v-card-text>
-									<v-form ref="form" class="ma-3" v-model="valid" >
-											<v-text-field
-													v-model="dataPost.title"
-													:rules="titleRules"
-													:counter="50"
-													label="Title"
-													outlined
-													autofocus
-													required>
-											</v-text-field>
-											<v-file-input
-												type="file"
-												class="mt-6"
-												label="Upload image"
-												outlined
-												prepend-icon="mdi-camera"
-												required
-												accept="image/*"
-												@change="imageUpload"
-											>
-											</v-file-input>
-									</v-form>
-					</v-card-text>
-
-					<v-card-actions>
-						<v-btn
-							:disabled="!valid"
-							class="success"
-							@click="createNewPost">
-							Post
-						</v-btn>
-					</v-card-actions>
-
-					</v-card>
-					</v-tab-item>
-					</v-tabs>
         </v-card>
     </div>
 </div>
@@ -126,7 +57,6 @@
 export default {
     data () {
         return {
-          tab: null,
           valid: true,
           newPost: '',
           titleRules: [
@@ -150,7 +80,7 @@ export default {
         }
     },
     methods: {
-      createNewPost () {
+      submitTextPost () {
         this.$emit('create-new-post', this.dataPost)
           localStorage.clear()
           console.log('Post created!')

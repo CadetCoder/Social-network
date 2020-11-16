@@ -109,8 +109,8 @@ export default {
 			emailRules: [
 				v => !!v || 'E-mail required',
 				v => /.+@.+\..+/.test(v) || 'E-mail invalid'
-			]
-		}
+            ]
+        }
     },
     methods: {
         //
@@ -120,10 +120,11 @@ export default {
     },
 
     components: {
-        'top-header': TopHeader
+      'top-header': TopHeader
     }
 }
 </script>
 
-<style>
+<style lang="scss">
+
 </style>

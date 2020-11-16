@@ -1,5 +1,6 @@
 <template>
-   <v-main class="bg-img">
+   <v-main
+   class="fill-height bg-img">
     <v-col
       cols="12"
       sm="8"
@@ -39,13 +40,11 @@
 h1 p {
     color: inherit;
   }
-.bg-img{
-  background-image: url('../assets/bg-teamwork.jpeg');
-  background-size: cover;
-  background-position: 50%;
-  height:100%
-  }
 a {
   text-decoration: none;
 }
+.bg-img {
+  background-image: url('../assets/bg-teamwork.jpeg');
+  background-size: cover;
+  }
 </style>

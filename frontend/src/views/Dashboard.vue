@@ -2,31 +2,26 @@
   <v-main>
     <top-header/>
     <scrollTop />
-      <v-container class="fill-height">
-          <v-img
-            src="src/assets/logo-main-white.png">
-          </v-img>
-      </v-container>
     <div class="ml-12">
       <h1 class="ma-4">Posts</h1>
-      <v-container>
         <v-dialog
           v-model="dialog"
           max-width="600px">
           <template v-slot:activator="{ on, attrs }">
-        <v-btn class="ma-3"
-          v-bind="attrs"
-          v-on="on">
-          Create a post
-        </v-btn>
+          <v-btn class="ma-3"
+            v-bind="attrs"
+            v-on="on">
+            Create a post
+          </v-btn>
           </template>
           <new-post
             @create-new-post="addPost"
           />
         </v-dialog>
+        <v-container>
         <!-- Posts -->
         <v-card
-          class="ma-3 mt-6"
+          class="ma-3 mt-6 align-center"
           width="400"
           v-for="(post, index) in allPosts"
           :key="index"
@@ -97,7 +92,7 @@ export default {
           title: 'another hello',
           unserName: 'another reddit user',
           content: 'New post',
-          date: ''
+          date: '1604155667381'
         },
         {
           title: 'hello',
@@ -127,12 +122,14 @@ export default {
   filters: {
     time (date) {
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
-      return Intl.DateTimeFormat('en-GB').format(date)
+      return Intl.DateTimeFormat('en-GB', {
+        timeStyle: 'medium',
+        dateStyle: 'short'
+      }).format(date)
     }
   }
 }
 </script>
 
-<style>
-
+<style style="scss">
 </style>
