@@ -26,15 +26,27 @@
               placeholder="Password"
               class="input-2"
             />
+            <input
+              id="last_name"
+              type="text"
+              name
+              value
+              v-model="last_name"
+              placeholder="Last name"
+              class="input-2"
+            />
+            <input
+              id="first_name"
+              type="text"
+              name
+              value
+              v-model="first_name"
+              placeholder="First name"
+              class="input-2"
+            />
           </div>
-          <button type="submit" name="button" class="btn">Log In</button>
+          <button type="submit" name="button" class="btn">Sign up</button>
         </form>
-      </div>
-      <div class="sub-content">
-        <div class="s-part">
-          Don't have an account?
-          <router-link to="signup">Sign up</router-link>
-        </div>
       </div>
     </div>
   </div>
@@ -43,7 +55,7 @@
 <script>
 import headerLog from '@/components/headerLog.vue'
 export default {
-  name: 'login',
+  name: 'signup',
   components: {
     headerLog
   },
@@ -51,18 +63,20 @@ export default {
     return {
       email: '',
       password: '',
-      user_id: '',
-      token_user: ''
+      first_name: '',
+      last_name: '',
+      user_token: ''
     }
   },
   methods: {
     postNow () {
       this.$axios
-        .post('http://localhost:3000/api/auth/login', {
+        .post('http://localhost:3000/api/auth/signup', {
           email: this.email,
           password: this.password,
-          id: this.user_id,
-          token_user: this.token_user
+          first_name: this.first_name,
+          last_name: this.last_name,
+          user_token: this.user_token
         })
         .then((response) => {
           console.log(response)
@@ -72,12 +86,9 @@ export default {
             'Bearer ' + response.data.token
           location.href = '/posts'
         })
-        .catch((error) => {
-          if (error.response.status === 401) {
-            this.message = 'Email ou mot de passe invalide'
-          }
-          if (error.response.status === 500) {
-            this.message = 'Erreur serveur'
+        .catch((e) => {
+          if (e.response.status === 500) {
+            this.message = 'Server error'
           }
           sessionStorage.removeItem('token')
         })
