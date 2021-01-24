@@ -8,13 +8,13 @@ module.exports = (req, res, next) => {
         console.log(decodedToken)
         const user_id = decodedToken.user_id;
         if (req.body.user_id && req.body.user_id !== user_id) {
-            throw 'userId invalide !';
+            throw "Invalid user ID";
         } else {
             next();
         }
     } catch {
         res.status(401).json({
-            error: new Error('Invalid request!')
+            error: new Error("Invalid request!")
         });
     }
 };
