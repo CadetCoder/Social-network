@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VuePwaInstallPlugin from 'vue-pwa-install'
@@ -10,37 +9,48 @@ Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'login',
+    component: () => import('../views/login.vue')
   },
   {
-    path: '/register',
-    name: 'Register',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
+    path: '/signup',
+    name: 'signup',
+    component: () => import('../views/signup.vue')
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import(/* webpackChunkName: "LogIn" */'../views/LogIn.vue')
+    path: '/posts',
+    name: 'posts',
+    component: () => import('../views/posts.vue')
   },
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: () => import('../views/Dashboard.vue')
+    path: '/myposts/:token_user',
+    name: 'myPosts',
+    component: () => import('../views/myPosts.vue')
   },
   {
-    path: '/profile',
-    name: 'Profile',
-    component: () => import('../views/Profile.vue')
+    path: '/account/:token_user',
+    name: 'account',
+    component: () => import('../views/account.vue')
+  },
+  {
+    path: '/publish',
+    name: 'publish',
+    component: () => import('../views/publish.vue')
+  },
+  {
+    path: '/postDetails/:post_id',
+    name: 'postDetails',
+    component: () => import('../views/postDetails.vue')
+  },
+  {
+    path: '/updatePost/:token_user/:post_id',
+    name: 'updatePost',
+    component: () => import('../views/updatePost.vue')
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
   routes
 })
 
