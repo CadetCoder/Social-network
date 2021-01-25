@@ -5,7 +5,6 @@ require('dotenv').config()
 const { v4: uuidv4 } = require('uuid');
 
 exports.signup = (req, res, next) => {
-    if (req.method == "POST") {
         let email = req.body.email;
         let password = req.body.password;
         let first_name = req.body.first_name;
@@ -45,7 +44,7 @@ exports.signup = (req, res, next) => {
                 }
             })
         })
-    }
+    
 }
 
 exports.login = (req, res, next) => {
