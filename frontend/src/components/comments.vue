@@ -110,10 +110,10 @@ export default {
         })
         .catch((error) => {
           if (error.response.status === 401) {
-            this.message = 'Commentaire non modifié'
+            this.message = 'Comment not modified!'
           }
           if (error.response.status === 500) {
-            this.message = 'Erreur serveur'
+            this.message = 'Server error!'
           }
         })
     },
@@ -128,10 +128,10 @@ export default {
         })
         .catch((error) => {
           if (error.response.status === 401) {
-            this.message = 'Commentaire non supprimé'
+            this.message = 'Comment was not deleted!'
           }
           if (error.response.status === 500) {
-            this.message = 'Erreur serveur'
+            this.message = 'Server error!'
           }
         })
     }
@@ -146,10 +146,10 @@ export default {
       })
       .catch((error) => {
         if (error.response.status === 401) {
-          this.message = 'Commentaire non publié'
+          this.message = 'Comment post unsuccessful!'
         }
         if (error.response.status === 500) {
-          this.message = 'Erreur serveur'
+          this.message = 'Server error'
         }
       })
   }

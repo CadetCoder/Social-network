@@ -1,4 +1,4 @@
-template>
+<template>
   <div class="container">
     <headerPosts />
     <div class="profile">
@@ -34,7 +34,7 @@ template>
 
           <div class="button-profile">
             <button v-if="edit" @click="edit = false">Discard changes</button>
-            <button v-else @click="edit = true">Modify</button>
+            <button v-else @click="edit = true">Edit</button>
             <button v-if="edit" v-on:click="updateDetails">Save</button>
             <button v-else v-on:click="deleteUser">Delete account</button>
           </div>
