@@ -69,7 +69,7 @@ export default {
         .then((response) => {
           console.log(response)
           sessionStorage.removeItem('token')
-          sessionStorage.removeItem('token_user')
+          sessionStorage.removeItem('tokenUser')
           location.href = '/'
         })
         .catch((error) => {

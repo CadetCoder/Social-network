@@ -51,8 +51,8 @@ export default {
     return {
       email: '',
       password: '',
-      user_id: '',
-      token_user: ''
+      userId: '',
+      tokenUser: ''
     }
   },
   methods: {
@@ -61,12 +61,12 @@ export default {
         .post('http://localhost:3000/api/auth/login', {
           email: this.email,
           password: this.password,
-          id: this.user_id,
-          token_user: this.token_user
+          id: this.userId,
+          tokenUser: this.tokenUser
         })
         .then((response) => {
           console.log(response)
-          sessionStorage.setItem('token_user', response.data.token_user)
+          sessionStorage.setItem('tokenUser', response.data.tokenUser)
           sessionStorage.setItem('token', response.data.token)
           this.$axios.defaults.headers.common.Authorization =
             'Bearer ' + response.data.token
@@ -74,10 +74,10 @@ export default {
         })
         .catch((error) => {
           if (error.response.status === 401) {
-            this.message = 'Email ou mot de passe invalide'
+            this.message = 'Invalid username or password!'
           }
           if (error.response.status === 500) {
-            this.message = 'Erreur serveur'
+            this.message = 'Server error'
           }
           sessionStorage.removeItem('token')
         })
