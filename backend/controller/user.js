@@ -48,7 +48,6 @@ exports.signup = (req, res, next) => {
 }
 
 exports.login = (req, res, next) => {
-    if (req.method == "POST") {
         let email = req.body.email;
         let sqlLogin = `SELECT users.email, users.password, users.id, users.token_user FROM users WHERE email = '${email}'`;
         sql.query(sqlLogin, function (err, result) {
@@ -73,11 +72,9 @@ exports.login = (req, res, next) => {
                 }
             }
         })
-    }
 };
 
 exports.delete = (req, res, next) => {
-    if (req.method == "DELETE") {
         let token_user = req.params.token_user;
         let deleteUser = `DELETE FROM users WHERE users.token_user = '${token_user}'`;
         sql.query(deleteUser, function (err, result) {
@@ -88,11 +85,9 @@ exports.delete = (req, res, next) => {
                 res.status(500).json({ message: "User error!" })
             }
         })
-    }
 };
 
 exports.modify = (req, res, next) => {
-    if (req.method == "PUT") {
         let email = req.body.email;
         let firstName = req.body.first_name;
         let lastName = req.body.last_name;
@@ -109,11 +104,9 @@ exports.modify = (req, res, next) => {
                 }
             })
         })
-    }
 };
 
 exports.display = (req, res, next) => {
-    if (req.method == "GET") {
         let token_user = req.params.token_user;
         let displayUser = `SELECT users.email, users.first_name, users.last_name FROM users WHERE users.token_user = '${token_user}'`;
         sql.query(displayUser, function (err, result) {
@@ -123,11 +116,9 @@ exports.display = (req, res, next) => {
                 res.status(401).json({ message: "Error on retrieving the profile!" })
             }
         })
-    }
 };
 
 exports.getCurrentUser = (req, res, next) => {
-    if (req.method == "GET") {
         let token_user = req.params.token_user;
         let getCurrentUser = `SELECT users.email, users.first_name, users.isAdmin, users.last_name FROM users WHERE users.token_user = '${token_user}'`;
         sql.query(getCurrentUser, function (err, result) {
@@ -137,5 +128,4 @@ exports.getCurrentUser = (req, res, next) => {
                 res.status(401).json({ message: "Error on retrieving the profile!" })
             }
         })
-    }
 };

@@ -2,7 +2,6 @@ const sql = require('../mysql');
 const fs = require('fs');
 
 exports.createPosts = (req, res, next) => {
-    if (req.method == "POST") {
         console.log(req.file);
         let image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
         let token_user = req.params.token_user;
@@ -15,11 +14,9 @@ exports.createPosts = (req, res, next) => {
                 res.status(401).json({ message: "New post not posted!" })
             }
         })
-    }
 };
 
 exports.getAllPosts = (req, res, next) => {
-    if (req.method == "GET") {
         let allPostReq = `SELECT users.first_name, users.last_name, posts.content, posts.imageUrl, posts.token_user, posts.id, posts.likes_number, posts.dislikes_number, users.isAdmin, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.token_user = users.token_user ORDER BY posts.post_create DESC;`;
         sql.query(allPostReq, function (err, result) {
             if (result.length > 0) {
@@ -28,11 +25,9 @@ exports.getAllPosts = (req, res, next) => {
                 return res.status(403).json({ message: "No post was found!" })
             }
         })
-    }
 };
 
 exports.getPostsUser = (req, res, next) => {
-    if (req.method == "GET") {
         let token_user = req.params.token_user;
         let onePostsReq = `SELECT users.first_name, users.last_name, posts.content, posts.id, posts.imageUrl, posts.token_user, posts.likes_number, users.isAdmin, posts.dislikes_number, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.token_user = users.token_user WHERE users.token_user = '${token_user}' ORDER BY posts.post_create DESC;;`;
         sql.query(onePostsReq, function (err, result) {
@@ -42,11 +37,9 @@ exports.getPostsUser = (req, res, next) => {
                 return res.status(403).json({ message: "No post was found!" })
             }
         })
-    }
 };
 
 exports.getOnePostId = (req, res, next) => {
-    if (req.method == "GET") {
         let post_id = req.params.id;
         let onePostsReq = `SELECT users.first_name, users.last_name, posts.content, posts.id, users.isAdmin, posts.imageUrl, posts.likes_number, posts.dislikes_number, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.token_user = users.token_user WHERE posts.id = '${post_id}';`;
         sql.query(onePostsReq, function (err, result) {
@@ -56,11 +49,9 @@ exports.getOnePostId = (req, res, next) => {
                 return res.status(403).json({ message: 'Err 403' })
             }
         })
-    }
 };
 
 exports.modifyPosts = (req, res, next) => {
-    if (req.method == "PUT") {
         let modifyContent = req.body.content;
         let image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
         let post_id = req.params.id;
@@ -72,11 +63,9 @@ exports.modifyPosts = (req, res, next) => {
                 return res.status(403).json({ err })
             }
         })
-    }
 };
 
 exports.deletePosts = (req, res, next) => {
-    if (req.method == "DELETE") {
         let post_id = req.params.id;
         let SQLDrop = `DELETE FROM posts WHERE id = '${post_id}'`;
         sql.query(SQLDrop, function (err, result) {
@@ -86,11 +75,9 @@ exports.deletePosts = (req, res, next) => {
                 return res.status(403).json({ err })
             }
         })
-    }
 };
 
 exports.getAllcomments = (req, res, next) => {
-    if (req.method == "GET") {
         let post_id = req.params.id;
         let displayComments = `SELECT comments.content, comments.date_comment, comments.id, users.first_name, comments.token_user ,users.last_name FROM comments INNER JOIN users ON comments.token_user = users.token_user WHERE post_id = ${post_id};`
         sql.query(displayComments, function (err, result) {
@@ -100,11 +87,9 @@ exports.getAllcomments = (req, res, next) => {
                 return res.status(403).json({ err })
             }
         })
-    }
 };
 
 exports.postComments = (req, res, next) => {
-    if (req.method == "POST") {
         let token_user = req.params.token_user;
         let post_id = req.params.id;
         let postContent = req.body.content;
@@ -116,11 +101,9 @@ exports.postComments = (req, res, next) => {
                 return res.status(403).json({ message: err })
             }
         })
-    }
 };
 
 exports.modifyComments = (req, res, next) => {
-    if (req.method == "PUT") {
         let token_user = req.params.token_user;
         let id = req.params.id;
         let postContent = req.body.content;
@@ -132,11 +115,9 @@ exports.modifyComments = (req, res, next) => {
                 return res.status(403).json({ err })
             }
         })
-    }
 };
 
 exports.deleteComments = (req, res, next) => {
-    if (req.method == "DELETE") {
         let idComments = req.params.id;
         let token_user = req.params.token_user;
         let SQLDeleteComments = `DELETE FROM comments WHERE token_user = '${token_user}' AND id = '${idComments}'`;
@@ -147,7 +128,6 @@ exports.deleteComments = (req, res, next) => {
                 return res.status(403).json({ err })
             }
         })
-    }
 };
 
 exports.postLikes = (req, res, next) => {
