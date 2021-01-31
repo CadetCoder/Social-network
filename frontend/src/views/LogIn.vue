@@ -4,7 +4,7 @@
     <div id="wrapper">
       <div class="main-content">
         <div class="header">
-          <img src="../assets\icon-above-font.png" />
+          <img src="../assets/icon-above-font.png" />
         </div>
         <form class method="post" v-on:submit.prevent="postNow">
           <div class="overlap-text">

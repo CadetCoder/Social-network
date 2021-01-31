@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="header-posts">
-      <img class="logo-header-log" src="../assets\banner-groupomania.png" />
+      <img class="logo-header-log" src="../assets/banner-groupomania.png" alt="grouopomania banner"/>
       <nav>
         <router-link :to="{ name: 'posts'}">Home</router-link>
         <router-link :to="{ name: 'account', params: { token_user: token_user }}">My account</router-link>
