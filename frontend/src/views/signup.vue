@@ -23,7 +23,7 @@
               name
               value
               v-model="password"
-              placeholder="Password"
+              placeholder="Choose a strong password"
               class="input-2"
             />
             <input
