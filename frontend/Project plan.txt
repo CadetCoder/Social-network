@@ -10,25 +10,24 @@
     [x] trademark
     [x] slogan section
 
-[] Posts Page
+[x] Posts Page
   [x] Navigation
-    [] User Profile button
-    [] Company Name
-    [] Company logo
-    [] Logout button
-  [] Main section
+    [x] User Profile button
+    [x] Company Name
+    [x] Company logo
+    [x] Logout button
+  [x] Main section
     [x] Create Post button
-    [] List of posts
-      [] posted by user name
-      [] post time
-      [] Title of the post
-      [] Body "content"
+    [x] List of posts
+      [x] posted by user name
+      [x] post time
+      [x] Title of the post
+      [x] Body "content"
     [] Back to top button
-
-[] Single poste
+    [x] Single post
   [] Navigation
-    [] Navigation
-    [] User Profile button
+    [x] Navigation
+    [x] User Profile button
     [] Company Name
     [] Company logo
     [] Logout button

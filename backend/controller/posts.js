@@ -17,7 +17,7 @@ exports.createPosts = (req, res, next) => {
 };
 
 exports.getAllPosts = (req, res, next) => {
-        let allPostReq = `SELECT users.first_name, users.last_name, posts.content, posts.imageUrl, posts.token_user, posts.id, posts.likes_number, posts.dislikes_number, users.isAdmin, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.token_user = users.token_user ORDER BY posts.post_create DESC;`;
+        let allPostReq = `SELECT users.first_name, users.last_name, posts.content, posts.imageUrl, users.token_user, posts.id, posts.likes_number, posts.dislikes_number, users.isAdmin, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON users.id = post.user_id ORDER BY posts.post_create DESC;`;
         sql.query(allPostReq, function (err, result) {
             if (result.length > 0) {
                 return res.status(200).json({ result })
@@ -29,7 +29,7 @@ exports.getAllPosts = (req, res, next) => {
 
 exports.getPostsUser = (req, res, next) => {
         let token_user = req.params.token_user;
-        let onePostsReq = `SELECT users.first_name, users.last_name, posts.content, posts.id, posts.imageUrl, posts.token_user, posts.likes_number, users.isAdmin, posts.dislikes_number, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.token_user = users.token_user WHERE users.token_user = '${token_user}' ORDER BY posts.post_create DESC;;`;
+        let onePostsReq = `SELECT users.first_name, users.last_name, posts.content, posts.id, posts.imageUrl, users.token_user, posts.likes_number, users.isAdmin, posts.dislikes_number, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.user_id = users.token_user WHERE users.token_user = '${token_user}' ORDER BY posts.post_create DESC;;`;
         sql.query(onePostsReq, function (err, result) {
             if (result.length > 0) {
                 return res.status(200).json({ result })
@@ -41,7 +41,7 @@ exports.getPostsUser = (req, res, next) => {
 
 exports.getOnePostId = (req, res, next) => {
         let post_id = req.params.id;
-        let onePostsReq = `SELECT users.first_name, users.last_name, posts.content, posts.id, users.isAdmin, posts.imageUrl, posts.likes_number, posts.dislikes_number, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.token_user = users.token_user WHERE posts.id = '${post_id}';`;
+        let onePostsReq = `SELECT users.first_name, users.last_name, posts.content, posts.id, users.isAdmin, posts.imageUrl, posts.likes_number, posts.dislikes_number, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON users.token_user = users.token_user WHERE posts.id = '${post_id}';`;
         sql.query(onePostsReq, function (err, result) {
             if (result.length > 0) {
                 return res.status(200).json({ result })

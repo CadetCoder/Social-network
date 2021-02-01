@@ -6,6 +6,7 @@
         <div class="header">
           <img src="../assets/icon-above-font.png" />
         </div>
+        <div class="mem-title"><h1>Member Login</h1></div>
         <form class method="post" v-on:submit.prevent="postNow">
           <div class="overlap-text">
             <input

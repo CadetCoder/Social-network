@@ -1,7 +1,7 @@
 <template>
   <div>
     <headerPosts />
-    <addPost />
+    <button><addPost /></button>
     <div v-for="post in posts" :key="post.id" class="post-comments">
       <div class="container-post">
         <div class="header-post">

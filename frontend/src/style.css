@@ -120,11 +120,13 @@ header {
 }
 
 nav {
-  width: 50%;
+  width: 60%;
+  max-width: 1120px;
   display: flex;
   justify-content: space-around;
   vertical-align: middle;
   text-align: center;
+  text-decoration: none;
 }
 
 .publish {
@@ -165,6 +167,10 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+.mem-title{
+  font-size: 25px;
+  padding: 10px;
 }
 
 .user-id,
