@@ -1,8 +1,10 @@
 <template>
-  <btn class="add-post">
+<div>
+  <button class="add-post">
     <i class="fas fa-plus-circle"></i>
     <router-link to="publish">Add post</router-link>
-  </btn>
+  </button>
+  </div>
 </template>
 
 <script>

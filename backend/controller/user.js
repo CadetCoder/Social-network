@@ -12,10 +12,29 @@ exports.signup = (req, res, next) => {
         let token_userGen = uuidv4();
 
         bcrypt.hash(password, 10, function (err, hash) {
-            let sqlSignup = `INSERT INTO users (email, password, first_name, last_name, token_user) VALUES ('${email}', '${hash}', '${first_name}', '${last_name}', '${token_userGen}')`;
+            let sqlSignup = 
+                `INSERT INTO users (
+                    email,
+                    password,
+                    first_name,
+                    last_name,
+                    token_user)
+                VALUES (
+                    '${email}',
+                    '${hash}',
+                    '${first_name}',
+                    '${last_name}',
+                    '${token_userGen}')`;
             sql.query(sqlSignup, function (err, result) {
                 if (!err) {
-                    let sqlLogin = `SELECT users.email, users.password, users.id, users.token_user FROM users WHERE email = '${email}'`;
+                    let sqlLogin =
+                    `SELECT
+                        users.email,
+                        users.password,
+                        users.id,
+                        users.token_user
+                    FROM users
+                    WHERE email = '${email}'`;
                     sql.query(sqlLogin, function (err, result) {
                         if (err) {
                             throw err;
@@ -49,7 +68,14 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
         let email = req.body.email;
-        let sqlLogin = `SELECT users.email, users.password, users.id, users.token_user FROM users WHERE email = '${email}'`;
+        let sqlLogin =
+        `SELECT
+            users.email,
+            users.password,
+            users.id,
+            users.token_user
+        FROM users
+        WHERE email = '${email}'`;
         sql.query(sqlLogin, function (err, result) {
             if (err) {
                 throw err;
@@ -76,7 +102,9 @@ exports.login = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
         let token_user = req.params.token_user;
-        let deleteUser = `DELETE FROM users WHERE users.token_user = '${token_user}'`;
+        let deleteUser =
+        `DELETE FROM users
+        WHERE users.token_user = '${token_user}'`;
         sql.query(deleteUser, function (err, result) {
             console.log(result)
             if (result.affectedRows > 0) {
@@ -95,7 +123,13 @@ exports.modify = (req, res, next) => {
         let token_user = req.params.token_user
 
         bcrypt.hash(password, 10, function (err, hash) {
-            let updateUser = `UPDATE users SET first_name = '${firstName}', last_name = '${lastName}', email = '${email}', password = '${hash}' WHERE token_user = '${token_user}';`;
+            let updateUser =
+            `UPDATE users
+            SET first_name = '${firstName}',
+            last_name = '${lastName}',
+            email = '${email}', 
+            password = '${hash}'
+            WHERE token_user = '${token_user}';`;
             sql.query(updateUser, function (err) {
                 if (!err) {
                     res.status(200).json({ message: "User updated successfully!" })

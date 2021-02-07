@@ -12,7 +12,7 @@
             Enter your first name :
             <input class="input" required v-model="first_name" />
           </p>
-          <p v-else class="user-first_name">Prénom : {{ user.first_name }}</p>
+          <p v-else class="user-first_name">First name : {{ user.first_name }}</p>
 
           <p v-if="edit" class="input">
             Enter your last name :
