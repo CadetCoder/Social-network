@@ -12,7 +12,7 @@
   text-align: center;
   background-color: white;
   height: 100vh;
-  background-image: url(./assets/bg-teamwork.jpeg);
+  /*background-image: url(./assets/bg-teamwork.jpeg);*/
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
