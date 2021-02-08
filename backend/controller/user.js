@@ -125,10 +125,10 @@ exports.modify = (req, res, next) => {
         bcrypt.hash(password, 10, function (err, hash) {
             let updateUser =
             `UPDATE users
-            SET first_name = '${firstName}',
-            last_name = '${lastName}',
-            email = '${email}', 
-            password = '${hash}'
+                SET first_name = '${firstName}',
+                last_name = '${lastName}',
+                email = '${email}', 
+                password = '${hash}'
             WHERE token_user = '${token_user}';`;
             sql.query(updateUser, function (err) {
                 if (!err) {
@@ -142,7 +142,13 @@ exports.modify = (req, res, next) => {
 
 exports.display = (req, res, next) => {
         let token_user = req.params.token_user;
-        let displayUser = `SELECT users.email, users.first_name, users.last_name FROM users WHERE users.token_user = '${token_user}'`;
+        let displayUser =
+            `SELECT
+                users.email,
+                users.first_name,
+                users.last_name
+            FROM users
+            WHERE users.token_user = '${token_user}'`;
         sql.query(displayUser, function (err, result) {
             if (result.length > 0) {
                 res.status(200).json({ result })
@@ -154,7 +160,14 @@ exports.display = (req, res, next) => {
 
 exports.getCurrentUser = (req, res, next) => {
         let token_user = req.params.token_user;
-        let getCurrentUser = `SELECT users.email, users.first_name, users.isAdmin, users.last_name FROM users WHERE users.token_user = '${token_user}'`;
+        let getCurrentUser =
+            `SELECT
+                users.email,
+                users.first_name,
+                users.isAdmin,
+                users.last_name
+            FROM users
+            WHERE users.token_user = '${token_user}'`;
         sql.query(getCurrentUser, function (err, result) {
             if (result.length > 0) {
                 res.status(200).json({ result })

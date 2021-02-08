@@ -71,7 +71,20 @@ exports.getPostsUser = (req, res, next) => {
 
 exports.getOnePostId = (req, res, next) => {
         let post_id = req.params.id;
-        let onePostsReq = `SELECT users.first_name, users.last_name, posts.content, posts.id, users.isAdmin, posts.imageUrl, posts.likes_number, posts.dislikes_number, DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON users.token_user = users.token_user WHERE posts.id = '${post_id}';`;
+        let onePostsReq =
+            `SELECT
+                users.first_name,
+                users.last_name,
+                posts.content,
+                posts.id,
+                users.isAdmin,
+                posts.imageUrl,
+                posts.likes_number,
+                posts.dislikes_number,
+                DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create
+                FROM posts
+                INNER JOIN users ON users.token_user = users.token_user
+                WHERE posts.id = '${post_id}';`;
         sql.query(onePostsReq, function (err, result) {
             if (result.length > 0) {
                 return res.status(200).json({ result })
@@ -85,7 +98,11 @@ exports.modifyPosts = (req, res, next) => {
         let modifyContent = req.body.content;
         let image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
         let post_id = req.params.id;
-        let SQLModify = `UPDATE posts SET content = '${modifyContent}', imageUrl = '${image}' WHERE id = '${post_id}'`;
+        let SQLModify =
+            `UPDATE posts
+            SET content = '${modifyContent}',
+            imageUrl = '${image}'
+            WHERE id = '${post_id}'`;
         sql.query(SQLModify, function (err, result) {
             if (result) {
                 return res.status(200).json({ message: 'Post successfully modified!' })
@@ -97,7 +114,9 @@ exports.modifyPosts = (req, res, next) => {
 
 exports.deletePosts = (req, res, next) => {
         let post_id = req.params.id;
-        let SQLDrop = `DELETE FROM posts WHERE id = '${post_id}'`;
+        let SQLDrop = 
+            `DELETE FROM posts
+            WHERE id = '${post_id}'`;
         sql.query(SQLDrop, function (err, result) {
             if (result) {
                 return res.status(200).json({ message: "Post deleted successfully!" })
@@ -109,7 +128,17 @@ exports.deletePosts = (req, res, next) => {
 
 exports.getAllcomments = (req, res, next) => {
         let post_id = req.params.id;
-        let displayComments = `SELECT comments.content, comments.date_comment, comments.id, users.first_name, comments.token_user ,users.last_name FROM comments INNER JOIN users ON comments.token_user = users.token_user WHERE post_id = ${post_id};`
+        let displayComments =
+            `SELECT
+                comments.content,
+                comments.date_comment,
+                comments.id,
+                users.first_name,
+                users.last_name,
+                comments.token_user,
+                FROM comments
+                INNER JOIN users ON comments.token_user = users.user_id
+                WHERE post_id = ${post_id};`
         sql.query(displayComments, function (err, result) {
             if (result) {
                 return res.status(200).json({ result })
@@ -123,7 +152,17 @@ exports.postComments = (req, res, next) => {
         let token_user = req.params.token_user;
         let post_id = req.params.id;
         let postContent = req.body.content;
-        let SQLComments = `INSERT INTO comments (content, post_id, token_user, date_comment) VALUES ('${postContent}', '${post_id}','${token_user}', NOW());`;
+        let SQLComments =
+            `INSERT INTO comments (
+                content,
+                post_id,
+                token_user,
+                date_comment)
+                    VALUES (
+                        '${postContent}',
+                        '${post_id}',
+                        '${token_user}',
+                        NOW());`;
         sql.query(SQLComments, function (err, result) {
             if (result) {
                 return res.status(200).json({ message: "Comment posted successfully" })
@@ -137,7 +176,13 @@ exports.modifyComments = (req, res, next) => {
         let token_user = req.params.token_user;
         let id = req.params.id;
         let postContent = req.body.content;
-        let SQLModifyComments = `UPDATE comments SET content = '${postContent}', token_user = '${token_user}', date_comment = NOW() WHERE token_user = '${token_user}' AND id = '${id}'`;
+        let SQLModifyComments =
+            `UPDATE comments
+            SET content = '${postContent}',
+                token_user = '${token_user}',
+                date_comment = NOW()
+                WHERE token_user = '${token_user}'
+                AND id = '${id}'`;
         sql.query(SQLModifyComments, function (err, result) {
             if (result) {
                 return res.status(200).json({ message: "Comment modified successfully!" })
@@ -150,7 +195,9 @@ exports.modifyComments = (req, res, next) => {
 exports.deleteComments = (req, res, next) => {
         let idComments = req.params.id;
         let token_user = req.params.token_user;
-        let SQLDeleteComments = `DELETE FROM comments WHERE token_user = '${token_user}' AND id = '${idComments}'`;
+        let SQLDeleteComments =
+            `DELETE FROM comments
+            WHERE token_user = '${token_user}' AND id = '${idComments}'`;
         sql.query(SQLDeleteComments, function (err, result) {
             if (result) {
                 return res.status(200).json({ message: "Comment deleted successfully!" })
