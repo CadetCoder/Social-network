@@ -10,7 +10,8 @@
 ## Requirements ##
 
 
-* This web application require node.js, if you don't have installed in your system please follow this link https://nodejs.org/en/download/.
-* For vue cli please follow this link https://cli.vuejs.org/guide/installation.html.
+* This web application require node.js, if you don't have installed in your system please visit: https://nodejs.org/en/download/.
+* For vue cli please visit: https://cli.vuejs.org/guide/installation.html.
+
 
 
