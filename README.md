@@ -1,8 +1,5 @@
 # Connect-E Groupomania
 
-[![NPM Downloads][npm-downloads-image]][npm-url]
-[![Node.js Version][node-image]][node-url]
-
 <h1 align="center">
   <br>
   <img src="https://github.com/CadetCoder/Vue-groupomania/blob/master/frontend/src/assets/icon-above-font.png" alt="groupomania" width="320">
