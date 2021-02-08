@@ -93,7 +93,8 @@ export default {
   },
   beforeMount () {
     this.$axios
-      .get(`http://localhost:3000/api/posts/${this.idPost}`)
+      .get(`http://localhost:3000/api/posts/${this.idPost}`, {},
+      { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.posts = response.data.result
       })

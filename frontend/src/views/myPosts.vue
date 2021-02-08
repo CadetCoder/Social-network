@@ -75,7 +75,8 @@ export default {
   },
   beforeMount () {
     this.$axios
-      .get(`http://localhost:3000/api/auth/getCurrentUser/${tokenUser}/`)
+      .get(`http://localhost:3000/api/auth/getCurrentUser/${tokenUser}/`, {},
+        { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.currentUser = response.data.result
       })

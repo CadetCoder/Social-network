@@ -33,7 +33,7 @@
 
 <script>
 import headerPosts from '@/components/headerPosts.vue'
-const tokenUser = sessionStorage.getItem('tokenUser')
+const tokenUser = sessionStorage.getItem('token_user')
 export default {
   name: 'publish',
   data () {
@@ -55,7 +55,9 @@ export default {
       formData.append('content', this.$data.content)
       formData.append('image', this.$data.image)
       this.$axios
-        .post(`http://localhost:3000/api/posts/${tokenUser}`, formData)
+        .post(`http://localhost:3000/api/posts/${tokenUser}`, formData,
+        { Headers: { Authorization: 'Bearer ' + tokenUser } }
+        )
         .then((response) => {
           console.log(response)
           location.href = '/posts'

@@ -1,14 +1,29 @@
 const sql = require('../mysql');
 const fs = require('fs');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 exports.createPosts = (req, res, next) => {
         console.log(req.file);
         let image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
-        let tokenUser = req.params.tokenUser;
+        //let tokenUser = req.params.tokenUser;
+        const tokenUser = req.headers.authorization.split(' ')[1];
         let content = req.body.content;
+        const decodedToken = jwt.verify(tokenUser, process.env.JWT_TOKEN);
+        console.log(decodedToken)
+        const user_id = decodedToken.user_id;
         let postSQL =
-        `INSERT INTO posts (imageUrl, content, user_id, post_create)
-        VALUES ('${image}', '${content}', '${user_id}', NOW());`;
+        `INSERT INTO
+            posts (
+                imageUrl,
+                content,
+                user_id,
+                post_create)
+        VALUES (
+            '${image}',
+            '${content}',
+            '${user_id}',
+        NOW());`;
         sql.query(postSQL, function (err, result) {
             if (result) {
                 res.status(200).json({ result })
@@ -21,21 +36,17 @@ exports.createPosts = (req, res, next) => {
 exports.getAllPosts = (req, res, next) => {
         let allPostReq =
         `SELECT
-        users.first_name,
-        users.last_name,
-        posts.content,
-        posts.imageUrl,
-        users.token_user,
-        posts.id,
-        posts.likes_number,
-        posts.dislikes_number,
-        users.isAdmin,
-        DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i')
-        AS post_create
-        FROM posts 
-        INNER JOIN users ON users.id = post.user_id
-        ORDER BY posts.post_create DESC;`;
+            users.first_name,
+            users.last_name,
+            posts.content,
+            posts.imageUrl,
+            users.token_user,
+            posts.id,
+            posts.likes_number,
+            posts.dislikes_number,
+            DATE_FORMAT(posts.post_create, 'on %e %M %Y at %kh%i') AS post_create FROM posts INNER JOIN users ON users.id = posts.user_id ORDER BY posts.post_create DESC;`;
         sql.query(allPostReq, function (err, result) {
+            console.log(result)
             if (result.length > 0) {
                 return res.status(200).json({ result })
             } else {
@@ -57,7 +68,7 @@ exports.getPostsUser = (req, res, next) => {
             posts.likes_number,
             users.isAdmin,
             posts.dislikes_number,
-        DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create FROM posts INNER JOIN users ON posts.user_id = users.token_user
+        DATE_FORMAT(posts.post_create, 'the %e %M %Y at %kh%i') AS post_create FROM posts INNER JOIN users ON posts.user_id = users.token_user
         WHERE users.token_user = '${token_user}'
         ORDER BY posts.post_create DESC;`;
         sql.query(onePostsReq, function (err, result) {
@@ -81,10 +92,10 @@ exports.getOnePostId = (req, res, next) => {
                 posts.imageUrl,
                 posts.likes_number,
                 posts.dislikes_number,
-                DATE_FORMAT(posts.post_create, 'the %e %M %Y à %kh%i') AS post_create
-                FROM posts
-                INNER JOIN users ON users.token_user = users.token_user
-                WHERE posts.id = '${post_id}';`;
+            DATE_FORMAT(posts.post_create, 'posted %e %M %Y à %kh%i ago') AS post_create
+            FROM posts
+            INNER JOIN users ON users.token_user = users.token_user
+            WHERE posts.id = '${post_id}';`;
         sql.query(onePostsReq, function (err, result) {
             if (result.length > 0) {
                 return res.status(200).json({ result })
@@ -136,9 +147,9 @@ exports.getAllcomments = (req, res, next) => {
                 users.first_name,
                 users.last_name,
                 comments.token_user,
-                FROM comments
-                INNER JOIN users ON comments.token_user = users.user_id
-                WHERE post_id = ${post_id};`
+            FROM comments
+            INNER JOIN users ON comments.token_user = users.user_id
+            WHERE post_id = ${post_id};`
         sql.query(displayComments, function (err, result) {
             if (result) {
                 return res.status(200).json({ result })

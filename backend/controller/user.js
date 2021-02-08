@@ -164,7 +164,6 @@ exports.getCurrentUser = (req, res, next) => {
             `SELECT
                 users.email,
                 users.first_name,
-                users.isAdmin,
                 users.last_name
             FROM users
             WHERE users.token_user = '${token_user}'`;

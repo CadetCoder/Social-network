@@ -56,6 +56,7 @@
 import headerPosts from '@/components/headerPosts.vue'
 import addPost from '@/components/addPost.vue'
 const tokenUser = sessionStorage.getItem('tokenUser')
+const userToken = sessionStorage.getItem('token_user')
 
 export default {
   name: 'posts',
@@ -72,7 +73,7 @@ export default {
   },
   beforeMount () {
     this.$axios
-      .get(`http://localhost:3000/api/auth/getCurrentUser/${tokenUser}/`)
+      .get(`http://localhost:3000/api/auth/getCurrentUser/${userToken}/`)
       .then((response) => {
         this.currentUser = response.data.result[0]
       })
@@ -80,7 +81,8 @@ export default {
         console.log(error)
       })
     this.$axios
-      .get('http://localhost:3000/api/posts/')
+      .get('http://localhost:3000/api/posts/', {},
+      { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.posts = response.data.result
       })
@@ -128,7 +130,8 @@ export default {
     },
     deletePost (idPost) {
       this.$axios
-        .delete(`http://localhost:3000/api/posts/${idPost}`)
+        .delete(`http://localhost:3000/api/posts/${idPost}`,
+        { Headers: { Authorization: 'Bearer ' + tokenUser } })
         .then((response) => {
           console.log(response)
           location.href = '/posts'
