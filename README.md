@@ -1,4 +1,4 @@
-# Groupomania
+# Groupomania Connect-E
 
 <h1 align="center">
   <br>
@@ -7,6 +7,10 @@
 
 <h4 align="center">An internal social network for Groupomania's employees.</h4>
 
-## Requirement ##
+## Requirements ##
 
-This web application require node.js, if you don't have installed in your system please follow this link `https://nodejs.org/en/download/`.
+
+* This web application require node.js, if you don't have installed in your system please follow this link `https://nodejs.org/en/download/`.
+* For vue cli please follow this link `https://cli.vuejs.org/guide/installation.html`.
+
+
