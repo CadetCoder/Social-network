@@ -1,4 +1,4 @@
-# Groupomania Connect-E
+# Connect-E Groupomania
 
 <h1 align="center">
   <br>
