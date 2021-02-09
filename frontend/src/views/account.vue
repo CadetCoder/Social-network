@@ -47,6 +47,8 @@
 <script>
 import headerPosts from '@/components/headerPosts.vue'
 const tokenUser = sessionStorage.getItem('tokenUser')
+const userToken = sessionStorage.getItem('token_user')
+
 export default {
   name: 'account',
   data: () => {
@@ -95,7 +97,7 @@ export default {
   },
   beforeMount () {
     this.$axios
-      .get(`http://localhost:3000/api/auth/profile/${tokenUser}`, {},
+      .get(`http://localhost:3000/api/auth/profile/${userToken}`, {},
         { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => (this.users = response.data.result))
       .catch((error) => {
