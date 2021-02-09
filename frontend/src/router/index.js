@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VuePwaInstallPlugin from 'vue-pwa-install'
+import vuetify from 'vuetify'
 
-Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin)
+Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin, vuetify)
 
 const routes = [
   {

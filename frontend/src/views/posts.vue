@@ -15,11 +15,12 @@
           <div>{{ post.content }}</div>
           <div class="lik-dis-com">
             <div @click="like(post.id)" class="like-comments">
-              <button class="like">
-                <i class="fas fa-thumbs-up">
-                  <span>{{ post.likes_number }}</span>
-                </i>
-              </button>
+              <v-btn
+              icon
+              color="deep-orange"
+            >
+              <v-icon>mdi-thumb-up <span>{{ post.likes_number }}</span></v-icon>
+            </v-btn>
             </div>
             <div @click="dislike(post.id)" class="like-comments">
               <button class="dislike">
@@ -145,5 +146,5 @@ export default {
 </script>
 
 <style>
-@import "../style.css";
+/*@import "../style.css";*/
 </style>
