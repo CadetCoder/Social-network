@@ -57,6 +57,7 @@
 <script>
 import headerPosts from '@/components/headerPosts.vue'
 const tokenUser = sessionStorage.getItem('tokenUser')
+const userToken = sessionStorage.getItem('token_user')
 
 export default {
   name: 'postsID',
@@ -75,7 +76,7 @@ export default {
   },
   beforeMount () {
     this.$axios
-      .get(`http://localhost:3000/api/auth/getCurrentUser/${tokenUser}/`, {},
+      .get(`http://localhost:3000/api/auth/getCurrentUser/${userToken}/`, {},
         { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.currentUser = response.data.result
@@ -84,7 +85,8 @@ export default {
         console.log(error)
       })
     this.$axios
-      .get(`http://localhost:3000/api/posts/profile/${tokenUser}`)
+      .get(`http://localhost:3000/api/posts/profile/${tokenUser}`, {},
+        { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.posts = response.data.result
       })
