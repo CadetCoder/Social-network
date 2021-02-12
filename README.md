@@ -29,6 +29,10 @@ Then the app running at:
 ```
 Local:   http://localhost:8080/
 ```
+### Technologies
+* VueJS
+* Vuetify
+* Sass
   
 ### Backend :
 
@@ -37,6 +41,10 @@ cd backend
 npm install
 nodemon start
 ```
+### Technologies
+* NodeJS
+* Express
+* MySQL
 
 ### Database :
 
