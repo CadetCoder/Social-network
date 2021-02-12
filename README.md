@@ -17,7 +17,7 @@
 
 `git clone https://github.com/CadetCoder/Vue-groupomania.git`
 
-### Frontend :
+## Frontend :
 
 ```
 cd frontend
@@ -34,7 +34,7 @@ Local:   http://localhost:8080/
 * Vuetify
 * Sass
   
-### Backend :
+## Backend :
 
 ```
 cd backend
