@@ -1,7 +1,7 @@
 <template>
 <div>
     <i class="fas fa-plus-circle"></i>
-    <router-link to="publish">Add post</router-link>
+    <router-link to="publish">Add new post</router-link>
   </div>
 </template>
 

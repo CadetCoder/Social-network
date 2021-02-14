@@ -1,7 +1,8 @@
 <template>
   <div>
     <headerPosts />
-    <button><addPost /></button>
+    <v-btn depressed color="primary" mt-6><addPost /></v-btn>
+    <div id="nf-right"><h1>News feed</h1></div>
     <div v-for="post in posts" :key="post.id" class="post-comments">
       <div class="container-post">
         <div class="header-post">
@@ -9,18 +10,16 @@
           <div class="time-post">{{ post.post_create }}</div>
         </div>
         <div>
-          <img class="image-post" v-bind:src="post.imageUrl" title="post-img" />
+          <v-img class="image-post" v-bind:src="post.imageUrl" title="post-img" />
         </div>
         <div class="post-content">
           <div>{{ post.content }}</div>
           <div class="lik-dis-com">
             <div @click="like(post.id)" class="like-comments">
-              <v-btn
-              icon
-              color="deep-orange"
-            >
-              <v-icon>mdi-thumb-up <span>{{ post.likes_number }}</span></v-icon>
-            </v-btn>
+              <button class="like">
+                <i class="fas fa-thumbs-up">
+                  <span>{{ post.likes_number }}</span>
+            </button>
             </div>
             <div @click="dislike(post.id)" class="like-comments">
               <button class="dislike">
@@ -29,20 +28,20 @@
                 </i>
               </button>
             </div>
-            <button
+            <v-btn
               v-if="shouldEditAndDeletePost(post)"
               @click="editPost(post.id)"
               class="see-comments"
             >
-              <i class="fas fa-edit"></i>
-            </button>
-            <button
+              <v-icon>mdi-comment-edit</v-icon>
+            </v-btn>
+            <v-btn
               v-if="shouldEditAndDeletePost(post)"
               @click="deletePost(post.id)"
               class="see-comments"
             >
               <i class="fas fa-trash-alt"></i>
-            </button>
+            </v-btn>
             <button @click="postDetails(post.id)" class="see-comments">
               <i class="fas fa-comments"></i>
             </button>
@@ -83,7 +82,7 @@ export default {
       })
     this.$axios
       .get('http://localhost:3000/api/posts/', {},
-      { Headers: { Authorization: 'Bearer ' + tokenUser } })
+        { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.posts = response.data.result
       })
@@ -131,7 +130,7 @@ export default {
     },
     deletePost (idPost) {
       this.$axios
-        .delete(`http://localhost:3000/api/posts/${idPost}`,
+        .delete(`http://localhost:3000/api/posts/${idPost}`, {},
         { Headers: { Authorization: 'Bearer ' + tokenUser } })
         .then((response) => {
           console.log(response)
@@ -146,5 +145,5 @@ export default {
 </script>
 
 <style>
-/*@import "../style.css";*/
+@import "../style.css";
 </style>
