@@ -13,7 +13,7 @@
 * This a web application require node.js, if you don't have installed in your system please visit: [Node.js](https://nodejs.org/en/download/).
 * For vue cli installation please visit: [Vue.js](https://cli.vuejs.org/guide/installation.html).
 
-🛠 ##Installation ##
+## Installation ##
 
 `git clone https://github.com/CadetCoder/Vue-groupomania.git`
 
@@ -51,6 +51,13 @@ nodemon start
 Make sure you have `MySQL` installed globally by downloading MySQL [here](https://dev.mysql.com/downloads/).
 
 To install MySQL in your project please visit [Node.js MySQL](https://www.w3schools.com/nodejs/nodejs_mysql.asp).
+
+* Download and install XAMPP [here](https://www.apachefriends.org/download.html).
+
+* Go to PHPmyadmin to handle the administration of MySQL.
+```
+http://localhost/phpmyadmin
+```
 
 * Create MySQL connection.
 ```
