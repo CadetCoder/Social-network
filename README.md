@@ -52,7 +52,7 @@ Make sure you have `MySQL` installed globally by downloading MySQL [here](https:
 
 To install MySQL in your project please visit [Node.js MySQL](https://www.w3schools.com/nodejs/nodejs_mysql.asp).
 
-* Download and install XAMPP [here](https://www.apachefriends.org/download.html).
+* Download and install XAMPP [here](https://www.apachefriends.org/download.html). XAMPP is a local web server on your computer
 
 * Go to PHPmyadmin to handle the administration of MySQL.
 ```
