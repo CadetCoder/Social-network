@@ -44,7 +44,10 @@ exports.getAllPosts = (req, res, next) => {
             posts.id,
             posts.likes_number,
             posts.dislikes_number,
-            DATE_FORMAT(posts.post_create, 'posted on %e %M %Y %kh%i') AS post_create FROM posts INNER JOIN users ON users.id = posts.userId ORDER BY posts.post_create DESC;`;
+            DATE_FORMAT(posts.post_create, 'posted on %e %M %Y %kh%i') AS post_create
+            FROM posts
+            INNER JOIN users ON users.id = posts.user_id
+            ORDER BY posts.post_create DESC;`;
         sql.query(allPostReq, function (err, result) {
             console.log(result)
             if (result.length > 0) {
@@ -68,7 +71,8 @@ exports.getPostsUser = (req, res, next) => {
             posts.likes_number,
             users.isAdmin,
             posts.dislikes_number,
-        DATE_FORMAT(posts.post_create, 'the %e %M %Y at %kh%i') AS post_create FROM posts INNER JOIN users ON posts.user_id = users.token_user
+        DATE_FORMAT(posts.post_create, 'the %e %M %Y at %kh%i') AS post_create FROM posts
+        INNER JOIN users ON posts.user_id = users.token_user
         WHERE users.token_user = '${token_user}'
         ORDER BY posts.post_create DESC;`;
         sql.query(onePostsReq, function (err, result) {
