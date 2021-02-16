@@ -19,6 +19,7 @@
               <button class="like">
                 <i class="fas fa-thumbs-up">
                   <span>{{ post.likes_number }}</span>
+                </i>
             </button>
             </div>
             <div @click="dislike(post.id)" class="like-comments">
@@ -73,7 +74,8 @@ export default {
   },
   beforeMount () {
     this.$axios
-      .get(`http://localhost:3000/api/auth/getCurrentUser/${userToken}/`)
+      .get(`http://localhost:3000/api/auth/getCurrentUser/${userToken}/`, {},
+        { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.currentUser = response.data.result[0]
       })
@@ -85,6 +87,7 @@ export default {
         { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.posts = response.data.result
+        console.log(response.data.result)
       })
       .catch((error) => {
         console.log(error)
@@ -98,7 +101,7 @@ export default {
       this.$axios
         .post(`http://localhost:3000/api/posts/${idPost}/like`, {
           tokenUser: this.tokenUser
-        })
+        }, { Headers: { Authorization: 'Bearer ' + tokenUser } })
         .then((response) => {
           location.reload()
           console.log(response)
@@ -111,7 +114,7 @@ export default {
       this.$axios
         .post(`http://localhost:3000/api/posts/${idPost}/dislike`, {
           token_user: this.tokenUser
-        })
+        }, { Headers: { Authorization: 'Bearer ' + tokenUser } })
         .then((response) => {
           location.reload()
           console.log(response)

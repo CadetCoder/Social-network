@@ -159,9 +159,10 @@ exports.display = (req, res, next) => {
 };
 
 exports.getCurrentUser = (req, res, next) => {
-        let token_user = req.params.token_user;
+        let token_user = req.params.tokenUser;
         let getCurrentUser =
             `SELECT
+                users.id,
                 users.email,
                 users.first_name,
                 users.last_name
