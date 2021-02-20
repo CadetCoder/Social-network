@@ -32,12 +32,12 @@ const routes = [
     component: () => import('../views/posts.vue')
   },
   {
-    path: '/myposts/:token_user',
+    path: '/myposts/:userToken',
     name: 'myPosts',
     component: () => import('../views/myPosts.vue')
   },
   {
-    path: '/account/:token_user',
+    path: '/account/:userToken',
     name: 'account',
     component: () => import('../views/account.vue')
   },
@@ -52,7 +52,7 @@ const routes = [
     component: () => import('../views/postDetails.vue')
   },
   {
-    path: '/updatePost/:token_user/:post_id',
+    path: '/updatePost/:userToken/:post_id',
     name: 'updatePost',
     component: () => import('../views/updatePost.vue')
   }

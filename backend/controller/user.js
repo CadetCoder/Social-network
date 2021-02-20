@@ -159,7 +159,7 @@ exports.display = (req, res, next) => {
 };
 
 exports.getCurrentUser = (req, res, next) => {
-        let token_user = req.params.tokenUser;
+        let token_user = req.params.token_user;
         let getCurrentUser =
             `SELECT
                 users.id,

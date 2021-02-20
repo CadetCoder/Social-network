@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 <template>
   <div>
     <headerPosts />
@@ -59,9 +60,11 @@ export default {
     comments
   },
   methods: {
-    like (idPost) {
+    // eslint-disable-next-line camelcase
+    like (id_post) {
       this.$axios
-        .post(`http://localhost:3000/api/posts/${idPost}/like`, {
+        // eslint-disable-next-line camelcase
+        .post(`http://localhost:3000/api/posts/${id_post}/like`, {
           token_user: this.tokenUser
         })
         .then((response) => {
@@ -72,9 +75,11 @@ export default {
           console.log(error)
         })
     },
-    dislike (idPost) {
+    // eslint-disable-next-line camelcase
+    dislike (id_post) {
       this.$axios
-        .post(`http://localhost:3000/api/posts/${idPost}/dislike`, {
+        // eslint-disable-next-line camelcase
+        .post(`http://localhost:3000/api/posts/${id_post}/dislike`, {
           tokenUser: this.tokenUser
         })
         .then((response) => {
@@ -85,16 +90,18 @@ export default {
           console.log(error)
         })
     },
-    postDetails (idPost) {
+    // eslint-disable-next-line camelcase
+    postDetails (id_post) {
       this.$router.push({
-        path: `/postDetails/${idPost}`
+        // eslint-disable-next-line camelcase
+        path: `/postDetails/${id_post}`
       })
     }
   },
   beforeMount () {
     this.$axios
-      .get(`http://localhost:3000/api/posts/${this.idPost}`, {},
-      { Headers: { Authorization: 'Bearer ' + tokenUser } })
+      .get(`http://localhost:3000/api/posts/${this.id_post}`, {},
+        { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.posts = response.data.result
       })
@@ -103,7 +110,7 @@ export default {
       })
   },
   created () {
-    this.post_id = this.$route.params.postId
+    this.post_id = this.$route.params.post_id
   }
 }
 </script>

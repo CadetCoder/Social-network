@@ -67,7 +67,7 @@ export default {
   data: () => {
     return {
       posts: [],
-      token_user: tokenUser,
+      tokenUser: tokenUser,
       currentUser: 0
     }
   },
@@ -85,7 +85,7 @@ export default {
         console.log(error)
       })
     this.$axios
-      .get(`http://localhost:3000/api/posts/profile/${tokenUser}`, {},
+      .get(`http://localhost:3000/api/posts/profile/${userToken}`, {},
         { Headers: { Authorization: 'Bearer ' + tokenUser } })
       .then((response) => {
         this.posts = response.data.result
@@ -97,7 +97,7 @@ export default {
   methods: {
     shouldEditAndDeletePost (post) {
       return (
-        post.userToken === tokenUser || this.currentUser[0].isAdmin === 1
+        post.tokenUser === tokenUser || this.currentUser[0].isAdmin === 1
       )
     },
     like (idPost) {
@@ -116,7 +116,7 @@ export default {
     dislike (idPost) {
       this.$axios
         .post(`http://localhost:3000/api/posts/${idPost}/dislike`, {
-          token_user: this.token_user
+          tokenUser: this.tokenUser
         })
         .then((response) => {
           location.reload()
@@ -130,14 +130,14 @@ export default {
       location.href = `/postDetails/${idPost}`
     },
     editPost (idPost) {
-      window.location.href = `/updatePost/${tokenUser}/${idPost}`
+      window.location.href = `/updatePost/${userToken}/${idPost}`
     },
     deletePost (idPost) {
       this.$axios
-        .delete(`http://localhost:3000/api/posts/${tokenUser}/${idPost}`)
+        .delete(`http://localhost:3000/api/posts/${userToken}/${idPost}`)
         .then((response) => {
           console.log(response)
-          location.href = `/myposts/${tokenUser}`
+          location.href = `/myposts/${userToken}`
         })
         .catch((error) => {
           console.log(error)

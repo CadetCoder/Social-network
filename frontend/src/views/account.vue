@@ -67,11 +67,12 @@ export default {
   methods: {
     deleteUser () {
       this.$axios
-        .delete(`http://localhost:3000/api/auth/delete/${tokenUser}`)
+        .delete(`http://localhost:3000/api/auth/delete/${userToken}`, {},
+        { Headers: { Authorization: 'Bearer ' + tokenUser } })
         .then((response) => {
           console.log(response)
           sessionStorage.removeItem('token')
-          sessionStorage.removeItem('tokenUser')
+          sessionStorage.removeItem('userToken')
           location.href = '/'
         })
         .catch((error) => {
@@ -80,7 +81,8 @@ export default {
     },
     updateDetails () {
       this.$axios
-        .put(`http://localhost:3000/api/auth/update/${tokenUser}`, {
+        .put(`http://localhost:3000/api/auth/update/${userToken}`, {},
+        { Headers: { Authorization: 'Bearer ' + tokenUser } }, {
           first_name: this.first_name,
           last_name: this.last_name,
           email: this.email,
