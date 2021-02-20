@@ -222,7 +222,7 @@ exports.deleteComments = (req, res, next) => {
         })
 };
 
-exports.postLikes = (req, res, next) => {
+exports.postLikes = (req, res) => {
     let token_user = req.body.token_user;
     let post_id = req.params.id;
     let ifExists = " \
@@ -242,7 +242,7 @@ exports.postLikes = (req, res, next) => {
                     if (result) {
                         switch (valueTwo) {
                             case 0:
-                                return res.status(200).json({ message: "Post like!" })
+                                return res.status(200).json({ message: "Post liked!" })
                                 break
                             case 1:
                                 let addLikeAndRemoveDislike = " \

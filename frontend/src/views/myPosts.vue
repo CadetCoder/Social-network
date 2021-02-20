@@ -97,7 +97,7 @@ export default {
   methods: {
     shouldEditAndDeletePost (post) {
       return (
-        post.token_user === tokenUser || this.currentUser[0].isAdmin === 1
+        post.userToken === tokenUser || this.currentUser[0].isAdmin === 1
       )
     },
     like (idPost) {
