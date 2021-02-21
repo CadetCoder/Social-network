@@ -65,7 +65,7 @@ export default {
       this.$axios
         // eslint-disable-next-line camelcase
         .post(`http://localhost:3000/api/posts/${id_post}/like`, {
-          token_user: this.userToken
+          token_user: this.tokenUser
         })
         .then((response) => {
           location.reload()
