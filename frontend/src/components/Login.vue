@@ -20,10 +20,12 @@
               <v-text-field
                 label="password"
                 v-model="password"
-                type="password"
+                :type= "showPassword ? 'text' : 'password' "
                 :rules="[(v) => !!v || 'Password is required']"
                 required
                 class="input-group--focused"
+                :append-icon= "showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append= "showPassword = !showPassword"
               >
               </v-text-field>
             </v-form>
@@ -54,6 +56,7 @@ export default {
     return {
       email: '',
       password: '',
+      showPassword: false,
       errorMessage: null,
       isValid: true,
       message: null
