@@ -1,14 +1,14 @@
 <template>
   <v-footer fixed dark class="footer">
     <v-btn x-small to="/about" class="ml-5 mt-3">Rules and Regulations</v-btn>
-    <!--         <div v-if="!$store.state.isLoggedIn" class="mt-2 mr-2">
+    <div v-if="!$store.state.isLoggedIn" class="mt-2 mr-2">
          {{ new Date().getFullYear() }} — <strong>Groupomania</strong>
 
         </div>
         <div v-else class="mt-2">
          {{ new Date().getFullYear() }} — <strong>Groupomania</strong>
 
-        </div> -->
+        </div>
     <v-btn
       v-if="$store.state.isLoggedIn"
       class=" mt-3 mr-5"

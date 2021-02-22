@@ -1,20 +1,18 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 
-module.exports = (req, res, next) => {
+module.exports = (req, res, next) => { 
     try {
-        const token = req.headers.authorization.split(' ')[1];
-        const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
-        console.log(decodedToken)
-        const user_id = decodedToken.user_id;
-        if (req.body.user_id && req.body.user_id !== user_id) {
-            throw "Invalid user ID";
+        const token = req.headers.authorization.split(' ')[1]; //extract the token from headers of the incoming request
+        const decodedToken = jwt.verify(token, 'secret'); // 
+        const userId = decodedToken.sub;         // take the token id
+        if (req.body.userId && req.body.userId !== userId) { // compare the userId of the quest and the token
+            throw 'Invalid user id!';
         } else {
             next();
         }
-    } catch {
-        res.status(401).json({
-            error: new Error("Invalid request!")
-        });
+    } catch (error) {
+        res.status(401).json({ error: new Error('Invalid request !') });
     }
 };
+
+

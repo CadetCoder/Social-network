@@ -1,9 +1,9 @@
 const http = require("http");
 const app = require("./app");
-
+const db = require("./models/index");
 const normalizePort = (val) => {
+  // the normalizeport function returns a valid port, whether supplied as a number or a string
   const port = parseInt(val, 10);
-
   if (isNaN(port)) {
     return val;
   }
@@ -16,6 +16,7 @@ const port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
 const errorHandler = (error) => {
+  // the errorHandler function looks for different errors and handles them appropriately. It is then saved in the server;
   if (error.syscall !== "listen") {
     throw error;
   }
@@ -38,11 +39,14 @@ const errorHandler = (error) => {
 
 const server = http.createServer(app);
 
-server.on("error", errorHandler);
-server.on("listening", () => {
-  const address = server.address();
-  const bind = typeof address === "string" ? "pipe " + address : "port " + port;
-  console.log("Listening on " + bind);
-});
-
-server.listen(port);
+db.sequelize.sync().then(function () {
+  server.on("error", errorHandler);
+  server.on("listening", () => {
+    const address = server.address();
+    const bind =
+      typeof address === "string" ? "pipe " + address : "port " + port;
+    console.log("Listening on " + bind);
+  });
+  server.listen(port);
+  require("./config/admin"); // setAdmin is called
+}); // an event listener is also registered, logging the port or named pipe the server is running on in the console.
