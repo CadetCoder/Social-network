@@ -36,7 +36,7 @@
       <v-btn
         v-if="isLogged === false"
         x-small
-        aria-label="Inscription"
+        aria-label="Signup"
         class="input-group--focused"
         to="/signup"
         >Register</v-btn

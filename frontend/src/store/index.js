@@ -98,10 +98,10 @@ export default new Vuex.Store({
 		// posts
 
 		GET_POSTS (state, posts) {
-			(state.posts = posts) (state.isLoading = false)
+			(state.posts = posts) // (state.isLoading = false)
 		},
 		GET_HOT_POSTS (state, posts) {
-			(state.posts = posts) (state.isLoading = false)
+			(state.posts = posts) // (state.isLoading = false)
 		},
 		GET_POST_BY_ID (state, post) {
 			state.post = post

@@ -74,17 +74,11 @@ exports.getAccount = async (req, res) => {
 	}
 };
 exports.getAllUsers = async (req, res) => {
-	// send all users except the admin
+	// send all users except the admin at line 80
 	try {
-		const users = await db.User.findAll({
-			attributes: ["username", "id", "photo", "bio", "email"],
-			where: {
-				id: {
-					[Op.any]: 1,
-				},
-			},
-		});
-		res.status(200).send(users);
+		const users = await db.User.findAll();
+		const notAdmin = users.filter(x => x.admin !=true)
+		res.status(200).send(notAdmin);
 	} catch (error) {
 		return res.status(500).send({ error: "Server error" });
 	}
