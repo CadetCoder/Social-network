@@ -4,7 +4,7 @@
       <v-col lg="4" md="5" sm="7">
         <v-card class="signup-card" color="text2" elevation="4" xs6>
           <v-card-title flat dense dark>
-            <h1 class="font-weight-regular titre">Register</h1></v-card-title
+            <h1 class="font-weight-regular title">Register</h1></v-card-title
           >
           <v-card-text class="font-weight-light">
             <v-form v-model="isValid" autocomplete="off">

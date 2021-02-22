@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 <template>
 	<div>
-		<v-card class="posts-card mx-auto mt-4 mb-4 pb-5" round elevation="2">
+		<v-card class="posts-card mx-auto mt-10 mb-4 pb-5" round elevation="2">
 			<div>
 				<div class="d-flex justify-space-between pr-2 ">
 					<v-card-title class="post-title">
@@ -25,7 +25,7 @@
 								>$vuetify.icons.account</v-icon
 							>
 						</v-avatar>
-						<div class="name-date mt-3">
+						<div class="name-date mt-10">
 							<span class="username text-left ml-5">{{ post.User.username }}</span>
 							<span class="date ml-5 text-left">{{
 								post.createdAt | moment("calendar")

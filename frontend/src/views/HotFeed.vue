@@ -2,7 +2,7 @@
   <v-container fluid class="feed-container">
     <v-row class="block">
       <v-col sm="12" md="6" class="mx-auto">
-        <v-card flat class="posts-card ">
+        <v-card flat class="posts-card">
           <v-img
             :src="require('../assets/logo_transparent.png')"
             class="my-2"
@@ -12,7 +12,7 @@
           />
           <h1 class="font-weight-regular text-center">News feed !</h1>
           <v-card-title
-            class=" d-flex justify-space-between"
+            class="d-flex justify-space-between"
             fixed
             flat
             dense
@@ -62,7 +62,7 @@
       </v-col>
     </v-row>
     <v-row
-      class=" block2 text-center d-flex flex-column justify-center align-center"
+      class="block2 text-center d-flex flex-column justify-center align-center"
     >
       <v-col sm="12" md="6" class="mx-auto">
         <v-card

@@ -3,7 +3,7 @@
     <v-card class="mx-auto post-card" max-width="600">
       <v-card-title class="post-title-box">
         <div class="update-title mx-auto">
-          <h1 class="font-weight-regular titre titre_new">
+          <h1 class="font-weight-regular title title_new">
             Edit
           </h1>
           <v-btn @click="getBackToFeed" class="mx-2 return-btn" small>
@@ -17,8 +17,7 @@
           <div class="d-flex flex-column mx-auto">
             <span>Your message: </span>
             <div
-              class="message ml-n4
-                "
+              class="message ml-n4"
             >
               <span>{{ post.message }}</span>
             </div>

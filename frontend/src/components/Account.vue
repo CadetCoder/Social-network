@@ -124,7 +124,7 @@
 
               <div class="d-flex justify-center">
                 <v-btn @click="onSubmit(user.id)" :disabled="!isValid"
-                  >Submit</v-btn
+                  >Save</v-btn
                 >
               </div>
             </v-card-text>

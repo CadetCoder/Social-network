@@ -14,7 +14,7 @@
           {{ mdiMessageSettingsOutline }}
         </v-icon>
         <div>
-          <h1 class="font-weight-regular titre titre_new">
+          <h1 class="font-weight-regular title title_new">
             What's on your mind ?
           </h1>
         </div>
