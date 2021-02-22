@@ -1,29 +1,27 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import axios from 'axios'
-import MicroModal from 'micromodal'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import router from './router' // vue-router instance
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 import vuetify from './plugins/vuetify'
+import store from './store' // vuex store instance
+import { sync } from 'vuex-router-sync'
 
-axios.defaults.baseURL = 'http://localhost:3000/api/'
-const token = sessionStorage.getItem('token')
-if (token) {
-  axios.defaults.headers.common.Authorization = 'Bearer ' + token
-}
-Vue.prototype.$axios = axios
-library.add(faUserSecret)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
+
+const moment = require('moment') // manage the display of dates with moment-view
+require('moment/locale/fr')
+Vue.use(require('vue-moment'), {
+  moment
+})
+Vue.use(Vuetify)
+const unsync = sync(store, router)
 
 new Vue({
   router,
   store,
   vuetify,
-  render: h => h(App)
+  render: (h) => h(App)
 }).$mount('#app')
 
-MicroModal.init()
+unsync()// Unsyncs store from router

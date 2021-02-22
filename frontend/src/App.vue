@@ -1,30 +1,43 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <v-app>
+    <!-- header -->
+    <page-header :user="user"    ></page-header>
+    <v-main>
+
+        <router-view></router-view>
+        <!-- Display view pages here based on route -->
+
+    </v-main>
+    <page-footer  :user="user"></page-footer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: "Open Sans Condensed", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  background-color: white;
-  height: 100vh;
-  /*background-image: url(./assets/bg-teamwork.jpeg);*/
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+<script>
+import PageHeader from './components/Header.vue'
+import PageFooter from './components/Footer.vue'
+import '../public/style.scss'
+export default {
+  name: 'app',
+  components: {
+    PageHeader,
+    PageFooter
+  },
+  data: () => {
+    return {
+    }
+  },
+   computed: {
+     user () {
+       return this.$store.getters.user
+     }
+   },
+   mounted () {
+     this.$store.dispatch('getUsers')
+     this.$store.dispatch('getUserById', this.user.id)
+   }
+
 }
-#nav {
-  padding: 30px;
-}
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+</script>
+<style lang="scss">
+
 </style>

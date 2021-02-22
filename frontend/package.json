@@ -19,10 +19,13 @@
     "tiptap-vuetify": "^2.24.0",
     "vue": "^2.6.12",
     "vue-axios": "^2.1.5",
+    "vue-moment": "^4.1.0",
     "vue-pwa-install": "^1.1.0",
     "vue-router": "^3.4.3",
     "vuetify": "^2.3.10",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^4.0.0-beta.3",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",

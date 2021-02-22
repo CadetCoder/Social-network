@@ -25,34 +25,34 @@
       [x] Body "content"
     [] Back to top button
     [x] Single post
-  [] Navigation
+  [x] Navigation
     [x] Navigation
     [x] User Profile button
-    [] Company Name
-    [] Company logo
-    [] Logout button
-  [] Main section
-    [] Back button
-    [] posted by user name
-    [] post time
-    [] Title of the post
-    [] Body "content"
-    [] Read button
+    [x] Company Name
+    [x] Company logo
+    [x] Logout button
+  [x] Main section
+    [x] Back button
+    [x] posted by user name
+    [x] post time
+    [x] Title of the post
+    [x] Body "content"
+    [x] Read button
 
-[] Create Post
-    [] Navigation
-      [] User Profile button
-      [] Company Name
-      [] Company logo
-      [] Logout button
-    [] Main section
-      [] Text Post button
-        [] Title
-        [] Body "content"
-        [] Cancel Button
-      [] Media Post button
-        [] Title
-        [] Upload button
-        [] Post button
-        [] Cancel button
+[x] Create Post
+    [x] Navigation
+      [x] User Profile button
+      [x] Company Name
+      [x] Company logo
+      [x] Logout button
+    [x] Main section
+      [x] Text Post button
+        [x] Title
+        [x] Body "content"
+        [x] Cancel Button
+      [x] Media Post button
+        [x] Title
+        [x] Upload button
+        [x] Post button
+        [x] Cancel button
 

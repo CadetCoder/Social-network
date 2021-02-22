@@ -1,65 +1,81 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import VuePwaInstallPlugin from 'vue-pwa-install'
-import vuetify from 'vuetify'
-import login from '../views/login.vue'
-import signup from '../views/signup.vue'
-import posts from '../views/posts.vue'
-import account from '../views/account.vue'
-import myPosts from '../views/myPosts.vue'
-import publish from '../views/publish.vue'
-import postDetails from '../views/postDetails.vue'
-import updatePost from '../views/updatePost.vue'
+import Home from '../views/Home.vue'
+import Signup from '../components/Signup.vue'
+import Login from '../components/Login.vue'
+import Feed from '../views/Feed.vue'
+import HotFeed from '../views/HotFeed.vue'
+import NewPost from '../components/NewPost.vue'
+import Account from '../components/Account.vue'
+import SinglePost from '../components/SinglePost.vue'
+import Accounts from '../components/Accounts.vue'
 
-Vue.use(VueRouter, VueAxios, axios, VuePwaInstallPlugin, vuetify, login, signup, posts, account, myPosts, publish, postDetails, updatePost)
+Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'login',
-    component: () => import('../views/login.vue')
+    name: 'Home',
+    component: Home
   },
   {
     path: '/signup',
     name: 'signup',
-    component: () => import('../views/signup.vue')
+    component: Signup
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/account/:id',
+    name: 'account',
+    component: Account
   },
   {
     path: '/posts',
-    name: 'posts',
-    component: () => import('../views/posts.vue')
+    name: 'feed',
+    component: Feed
   },
   {
-    path: '/myposts/:userToken',
-    name: 'myPosts',
-    component: () => import('../views/myPosts.vue')
+    path: '/hot',
+    name: 'hotFeed',
+    component: HotFeed
   },
   {
-    path: '/account/:userToken',
-    name: 'account',
-    component: () => import('../views/account.vue')
+    path: '/posts/:id',
+    name: 'singlePost',
+    component: SinglePost
+
   },
   {
-    path: '/publish',
-    name: 'publish',
-    component: () => import('../views/publish.vue')
+    path: '/accounts',
+    name: 'accounts',
+    component: Accounts
+
   },
+
   {
-    path: '/postDetails/:post_id',
-    name: 'postDetails',
-    component: () => import('../views/postDetails.vue')
+    path: '/add',
+    name: 'NewPost',
+    component: NewPost
   },
+
   {
-    path: '/updatePost/:userToken/:post_id',
-    name: 'updatePost',
-    component: () => import('../views/updatePost.vue')
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 
