@@ -9,8 +9,8 @@ import { sync } from 'vuex-router-sync'
 
 Vue.config.productionTip = false
 
-const moment = require('moment') // manage the display of dates with moment-view
-require('moment/locale/fr')
+const moment = require('moment') // manage the display of dates with moment-view for date/time stamp in posts
+require('moment/locale/en-gb')
 Vue.use(require('vue-moment'), {
   moment
 })

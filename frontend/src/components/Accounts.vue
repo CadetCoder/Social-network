@@ -25,10 +25,10 @@
                   "
                   color="pink"
                   size="42"
-                  >$vuetify.icons.account</v-icon
+                  >mdi-account-group-outline</v-icon
                 >
                 <v-icon role="avatar" v-else size="42"
-                  >$vuetify.icons.account</v-icon
+                  >mdi-account-group-outline</v-icon
                 >
               </v-avatar>
               <div class="d-flex flex-column">

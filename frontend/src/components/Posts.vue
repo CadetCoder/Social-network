@@ -147,7 +147,7 @@
 								>
 									<v-text-field
 										name="input-1-3"
-										label="ton commentaire"
+										label="your comment"
 										v-model="data.commentMessage"
 										auto-grow
 										class="comment-form__message input-group--focused"

@@ -6,7 +6,7 @@ function setAdmin(req, res) {
 		.then((user) => {
 			if (!user) {
 				bcrypt
-					.hash("Moderator", 10)
+					.hash("Moderator", 10) // password for admin
 					.then((hash) => {
 						const admin = db.User.create({
 							username: "admin",

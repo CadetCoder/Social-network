@@ -16,6 +16,7 @@
     "core-js": "^3.6.5",
     "material-design-icons": "^3.0.1",
     "micromodal": "^0.4.6",
+    "moment": "^2.29.1",
     "tiptap-vuetify": "^2.24.0",
     "vue": "^2.6.12",
     "vue-axios": "^2.1.5",
