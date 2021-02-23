@@ -261,7 +261,7 @@ export default {
 			errorMessage: null,
 			data: {
 				commentMessage: '',
-				commentPseudo: this.$store.state.user.username
+				commentUsername: this.$store.state.user.username
 			}
 		}
 	},

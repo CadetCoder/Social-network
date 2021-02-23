@@ -50,7 +50,7 @@
             <v-tooltip bottom>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn small to="/add" v-bind="attrs" v-on="on">
-                  <v-icon aria-label="publier" role="img" aria-hidden="false">{{
+                  <v-icon aria-label="post" role="img" aria-hidden="false">{{
                     mdiPencilOutline
                   }}</v-icon>
                 </v-btn>

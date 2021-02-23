@@ -74,7 +74,7 @@
                 >
               </v-avatar>
               <v-btn @click="togglePhoto" class="mx-2" x-small>
-                Switch User
+                Change
               </v-btn>
             </v-card-title>
 
@@ -98,7 +98,7 @@
             >
               <strong>Your bio: </strong>
               <div>
-                <span v-if="!user.bio"> Tell us about you 😊</span>
+                <span v-if="!user.bio"> Tell us something about you 😊</span>
                 <span class="bio-field">{{ user.bio }}</span>
               </div>
             </div>
