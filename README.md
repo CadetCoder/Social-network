@@ -31,8 +31,10 @@ Local:   http://localhost:8080/
 ```	
 ### Technologies	
 * VueJS	
-* Vuetify	
-* Sass	
+* Vuetify
+* Vuex
+* axios
+* Sass
 
 ## Backend :	
 
@@ -43,7 +45,8 @@ nodemon start
 ```	
 ### Technologies	
 * NodeJS	
-* Express	
+* Express
+* Sequelize
 * MySQL	
 
 ### Database :	
@@ -57,20 +60,6 @@ To install MySQL in your project please visit [Node.js MySQL](https://www.w3scho
 * Go to PHPmyadmin to handle the administration of MySQL.	
 ```	
 http://localhost/phpmyadmin	
-```	
-
-* Create MySQL connection.	
-```	
-var mysql = require('mysql');	
-var con = mysql.createConnection({	
-  host: "localhost",	
-  user: "yourusername",	
-  password: "yourpassword"	
-});	
-con.connect(function(err) {	
-  if (err) throw err;	
-  console.log("Connected!");	
-});	
 ```	
 
 * MySQL Database table	
@@ -109,6 +98,20 @@ post_id | smallint          | YES  | MUL | NULL
 dislikes| INT | NO	
 ```	
 MySQL Cheatsheet - https://gist.github.com/bradtraversy/c831baaad44343cc945e76c2e30927b3 credit to the author [Brad Traversy](https://gist.github.com/bradtraversy).	
+
+## Utilisation
+
+To register on the Groupomania social network, you must provide:
+
+   * A nickname (between 3 and 30 characters)
+   * A valid email address
+   * A password (8 to 20 characters, letters and numbers accepted only, upper and lower case, no symbols). You can then modify your profile (username, bio, photo) by going to your profile. Your account can be deleted by you as well as by the administrator.
+
+Once logged in you can see user posts and publish as desired:
+
+   * a status
+   * a status + a link (gifs ok, no youtube videos)
+   * a status + an image These publications can be liked, commented, modified, deleted. The moderator can delete them.
 
 ## License	
 
