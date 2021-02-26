@@ -68,9 +68,9 @@ MySQL Cheatsheet - https://gist.github.com/bradtraversy/c831baaad44343cc945e76c2
 
 To register on the Groupomania social network, you must provide:
 
-   * A nickname (between 3 and 30 characters)
+   * A username (between 3 to 30 characters)
    * A valid email address
-   * A password (8 to 20 characters, letters and numbers accepted only, upper and lower case, no symbols). You can then modify your profile (username, bio, photo) by going to your profile. Your account can be deleted by you as well as by the administrator.
+   * A password (8 to 20 characters, letters and numbers accepted only, upper and lower case, no symbols). You can then modify your profile (username, bio, photo) by going to your profile. Your account can be deleted by you as well as by the moderator.
 
 Once logged in you can see user posts and publish as desired:
 
