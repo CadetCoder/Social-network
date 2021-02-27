@@ -76,7 +76,7 @@ Once logged in you can see user posts and publish as desired:
 
    * a status
    * a status + a link (gifs ok, no youtube videos)
-   * a status + an image These publications can be liked, commented, modified, deleted. The moderator can delete them.
+   * a status + an image. These posts can be like, comment, modify and delete. The moderator can delete them.
 
 ## License	
 
