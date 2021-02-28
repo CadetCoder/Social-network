@@ -6,7 +6,7 @@ import Auth from '../services/Auth'
 import axios from 'axios'
 
 Vue.use(Vuex)
-
+// State - the source of truth that drives our app;
 export default new Vuex.Store({
 	strict: true,
 	state: {
@@ -26,6 +26,8 @@ export default new Vuex.Store({
 			storage: window.sessionStorage
 		})
 	],
+
+	// Access the state
 	getters: {
 		posts (state) {
 			return state.posts
@@ -50,6 +52,7 @@ export default new Vuex.Store({
 		}
 	},
 
+	// Commit and track state changes
 	mutations: {
 		// users
 		SET_TOKEN (state, token) {
@@ -144,6 +147,8 @@ export default new Vuex.Store({
 		}
 		// end like
 	},
+
+	// Update the Vuex state
 	actions: {
 		// users
 		setToken ({ commit }, token) {
