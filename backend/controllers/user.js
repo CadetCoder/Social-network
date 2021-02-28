@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt"); // to excrypt password
+const bcrypt = require("bcrypt"); // to encrypt password by hashing
 const db = require("../models"); // db models
 const token = require("../middleware/token"); // module that generates the token
 const fs = require("fs"); //file system
