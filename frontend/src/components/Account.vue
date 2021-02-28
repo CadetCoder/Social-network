@@ -8,7 +8,7 @@
               Return
             </v-btn>
             <v-card-title flat dense dark class="profile-title mr-3"
-              ><h1 class="title">Edit profile</h1>
+              ><h1 class="title">My Profile</h1>
             </v-card-title>
             <div class="delete-account">
               <v-tooltip v-if="!$store.state.user.admin === true" bottom>
