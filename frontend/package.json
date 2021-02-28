@@ -50,6 +50,7 @@
     "mocha": "^8.3.0",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2",
+    "sequelize-cli": "^6.2.0",
     "vue-cli-plugin-vuetify": "~2.0.9",
     "vue-template-compiler": "^2.6.12",
     "vuetify-loader": "^1.6.0"
