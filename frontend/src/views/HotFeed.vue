@@ -51,7 +51,7 @@
               <template v-slot:activator="{ on, attrs }">
                 <v-btn small to="/add" v-bind="attrs" v-on="on">
                   <v-icon aria-label="post" role="img" aria-hidden="false">{{
-                    mdiPencilOutline
+                    mdiNotePlusOutline
                   }}</v-icon>
                 </v-btn>
               </template>
@@ -102,7 +102,7 @@
 
 <script>
 import Posts from '@/components/Posts.vue'
-import { mdiPencilOutline } from '@mdi/js'
+import { mdiNotePlusOutline } from '@mdi/js'
 export default {
   name: 'HotFeed',
   components: {
@@ -111,7 +111,7 @@ export default {
   data () {
     return {
       errorMessage: null,
-      mdiPencilOutline
+      mdiNotePlusOutline
     }
   },
   computed: {

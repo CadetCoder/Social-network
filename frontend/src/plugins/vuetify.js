@@ -11,8 +11,8 @@ const MY_ICONS = {
   comment: 'mdi-comment-text-outline',
   like: 'mdi-thumb-up',
   home: 'mdi-home',
-  mail: 'mdi-email'
-
+  mail: 'mdi-email',
+  users: 'mdi-groups-circle'
 }
 
 export default new Vuetify({

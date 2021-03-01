@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
-<template>
+<template >
 	<div>
-		<v-card class="posts-card mx-auto mt-10 mb-4 pb-5" round elevation="2">
+		<v-card class="posts-card mx-auto mt-10 mb-4 pb-5" round elevation="2" v-for="(post,index) of postProps " v-bind:key='index' >
 			<div>
 				<div class="d-flex justify-space-between pr-2 ">
 					<v-card-title class="post-title">
@@ -15,8 +15,7 @@
 								role="edit avatar"
 								v-else-if="
 									post.User.photo === null &&
-										post.User.id === $store.state.user.id
-								"
+									post.User.id === $store.state.user.id"
 								color="pink"
 								size="52px"
 								>$vuetify.icons.account</v-icon
@@ -26,7 +25,7 @@
 							>
 						</v-avatar>
 						<div class="name-date mt-10">
-							<span class="username text-left ml-5">{{ post.User.username }}</span>
+					<span class="username text-left ml-5">{{ post.User.username }}</span>
 							<span class="date ml-5 text-left">{{
 								post.createdAt | moment("calendar")
 							}}</span>
@@ -128,7 +127,7 @@
 							aria-label="liker"
 							class="like-btn"
 						>
-							<v-icon :color="isLiked">
+							<v-icon :color="post.Likes.filter(a => a.UserId == isLiked ) != 0 ? 'pink' :  ''  ">
 								$vuetify.icons.like
 							</v-icon>
 						</v-btn>
@@ -239,14 +238,9 @@ import PostService from '../services/PostService'
 
 export default {
 	name: 'Posts',
-
-	props: {
-		post: {
-			type: Object
-		}
-	},
 	data: function () {
 		return {
+						postProps: [],
 			show: false,
 			width: 500,
 			commentForm: false,
@@ -255,6 +249,7 @@ export default {
 			update: false,
 			isValid: true,
 			photo: false,
+			posts: [],
 			rules: {
 				required: (value) => !!value || 'Required.'
 			},
@@ -266,16 +261,20 @@ export default {
 			}
 		}
 	},
+	beforeMount () {
+			console.log(this.postProps)
+			this.postProps = this.getPosts
+	},
 	computed: {
-		isLiked () {
-			const userId = this.$store.state.user.id
-			const userLike = this.post.Likes.map((a) => a.UserId)
-			if (userLike.includes(userId)) {
-				return 'pink'
-			} else {
-				return ''
-			}
-		}
+			render () {
+			return this.$store.state.render
+				},
+				getPosts () {
+					return this.$store.state.posts
+				},
+				isLiked () {
+				return this.$store.state.user.id
+				}
 	},
 
 	methods: {
@@ -283,6 +282,7 @@ export default {
 			try {
 				const response = await PostService.getPosts()
 				this.posts = response.data
+				console.log(this.posts)
 			} catch (error) {
 				this.errorMessage = error.response.data.error
 			}
@@ -290,11 +290,30 @@ export default {
 		getProfile (id) {
 			this.$router.push(`/account/${id}`)
 		},
-		deletePost () {
-			this.$emit('deletePost', this.post.id)
+		deletePost (id) {
+			this.$store.dispatch('deletePost', id)
+			this.$emit('renderView')
+					this.$emit('renderView')
+			this.$store.dispatch('RenderView', this.render + 1)
 		},
-		likePost () {
-			this.$emit('likePost', this.post.id)
+		deleteComment (id) {
+			this.$store.dispatch('deleteComment', id)
+			this.$emit('renderView')
+					this.$emit('renderView')
+			this.$store.dispatch('RenderView', this.render + 1)
+		},
+
+		likePost (id) {
+			console.log(id)
+			const data = 1
+		this.$store.dispatch('likePost', {
+				id: id,
+				data: data
+			})
+			this.$store.dispatch('getPosts')
+			this.reloadFeed()
+						this.$store.dispatch('RenderView', this.render + 1)
+			this.$emit('renderView')
 		},
 		getOnePost (id) {
 			this.$router.push(`posts/${id}`)
@@ -307,13 +326,9 @@ export default {
 			})
 			this.data.commentMessage = ''
 			this.$store.dispatch('getPosts')
-			this.$store.dispatch('getPostById', this.post.id)
-		},
-
-		deleteComment (id) {
-			// eslint-disable-next-line no-unused-expressions
-			this.$store.dispatch('deleteComment', id)
-      this.reloadFeed()
+			this.$store.dispatch('getPostById', id)
+			this.$emit('renderView')
+			this.$store.dispatch('RenderView', this.render + 1)
 		}
 	}
 }

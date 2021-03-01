@@ -15,6 +15,7 @@ Vue.use(require('vue-moment'), {
   moment
 })
 Vue.use(Vuetify)
+
 const unsync = sync(store, router)
 
 new Vue({

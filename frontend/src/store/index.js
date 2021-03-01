@@ -19,7 +19,8 @@ export default new Vuex.Store({
 		users: [],
 		post: {},
 		message: '',
-		error: ''
+		error: '',
+		render: 1
 	},
 	plugins: [
 		createPersistedState({
@@ -79,7 +80,7 @@ export default new Vuex.Store({
 		},
 		UPDATE_ACCOUNT (state, id, user) {
 			Object.assign(
-				state.users.find((element) => element.id === id),
+				state.users.filter((element) => element.id === id),
 				user
 			)
 			state.message = 'Modified successfully!!'
@@ -144,8 +145,11 @@ export default new Vuex.Store({
 
 		LIKE_POST (state, like) {
 			state.posts = [like, ...state.posts]
-		}
+		},
 		// end like
+		RenderView (state, render) {
+			state.render = render
+		}
 	},
 
 	// Update the Vuex state
@@ -312,6 +316,9 @@ export default new Vuex.Store({
 						commit('GET_POSTS', posts)
 					})
 				})
-		}
+		},
+		RenderView ({ commit }, render) {
+	commit('RenderView', render)
+}
 	}
 })

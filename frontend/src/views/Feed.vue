@@ -74,16 +74,13 @@
 					elevation="2"
 				>
 					<v-card-text>
-						<posts
-							v-for="post of posts"
-							:key="post.id"
-							:post="post"
-							:id="post.id"
-							@deletePost="deletePost(post.id)"
-							@likePost="likePost(post.id)"
+						<posts :key="render"
+							@deletePost="deletePost(id)"
+							@likePost="likePost(id)"
 							@reloadFeed="reloadFeed()"
-							@onSubmitComment="onSubmitComment(post.id)"
-							@deleteComment="deleteComment(comment.id)"
+							@onSubmitComment="onSubmitComment(id)"
+							@deleteComment="deleteComment(id)"
+							@renderView="renderView()"
 						>
 						</posts>
 					</v-card-text>
@@ -113,13 +110,17 @@ export default {
 	computed: {
 		posts () {
 			return this.$store.getters.posts
+		},
+		render () {
+			return this.$store.state.render
 		}
+
 	},
 	data () {
 		return {
 			errorMessage: null,
 			mdiNotePlusOutline
-		}
+			}
 	},
 	beforeMount () {
 		this.$store.dispatch('getPosts')
@@ -134,13 +135,19 @@ export default {
 		},
 
 		likePost (id) {
+			console.log(id)
 			const data = 1
 			this.$store.dispatch('likePost', {
 				id: id,
 				data: data
 			})
 			this.$store.dispatch('getPosts')
+		},
+		renderView () {
+			this.$store.dispatch('RenderView', this.render + 1)
+			console.log('rerender', this.render)
 		}
+
 	}
 }
 </script>
