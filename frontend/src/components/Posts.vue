@@ -163,7 +163,7 @@
 								</v-form>
 								<div>
 									<div class="danger-alert" v-html="errorMessage" />
-									<div class="danger-alert" v-html="messageRetour" />
+									<div class="danger-alert" v-html="messageReturn" />
 								</div>
 							</v-card-text>
 							<v-list
@@ -254,10 +254,11 @@ export default {
 			showFeed: true,
 			update: false,
 			isValid: true,
+			photo: false,
 			rules: {
 				required: (value) => !!value || 'Required.'
 			},
-			messageRetour: null,
+			messageReturn: null,
 			errorMessage: null,
 			data: {
 				commentMessage: '',

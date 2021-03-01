@@ -169,7 +169,7 @@ exports.createPost = async (req, res) => {
 
       res
         .status(201)
-        .json({ post: post, messageRetour: "Post added successfully!!" });
+        .json({ post: post, messageReturn: "Post added successfully!!" });
     } else {
       res.status(400).send({ error: "Error " });
     }
@@ -229,7 +229,7 @@ exports.updatePost = async (req, res) => {
       const newPost = await post.save({
         fields: ["message", "link", "imageUrl"],
       });
-      res.status(200).json({ newPost: newPost, messageRetour: "Post updated successfully!" });
+      res.status(200).json({ newPost: newPost, messageReturn: "Post updated successfully!" });
     } else {
       res.status(400).json({ error: error });
     }
@@ -250,13 +250,13 @@ exports.likePost = async (req, res, next) => {
         { where: { UserId: userId, PostId: postId } },
         { truncate: true, restartIdentity: true }
       );
-      res.status(200).send({ message: "Post unlike successfully!!" });
+      res.status(200).send({ messageReturn: "Post unlike successfully!!" });
     } else {
       await db.Like.create({
         UserId: userId,
         PostId: postId,
       });
-      res.status(201).json({ message: "Post liked!" });
+      res.status(201).json({ messageReturn: "Post liked!" });
     }
   } catch (error) {
     return res.status(500).send({ error: "Server error" });
@@ -275,7 +275,7 @@ exports.addComment = async (req, res) => {
 
     res
       .status(201)
-      .json({ newComment, messageRetour: "Comment added successfully!!" });
+      .json({ newComment, messageReturn: "Comment added successfully!!" });
   } catch (error) {
     return res.status(500).send({ error: "Server error" });
   }

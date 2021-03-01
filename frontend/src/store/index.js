@@ -41,7 +41,7 @@ export default new Vuex.Store({
 		user (state) {
 			return state.user
 		},
-		messageRetour (state) {
+		messageReturn (state) {
 			return state.message
 		},
 		errorMessage (state) {

@@ -120,12 +120,12 @@ exports.updateAccount = async (req, res) => {
 			const newUser = await user.save({ fields: ["username", "bio", "photo"] }); // to save the changes in DB
 			res.status(200).json({
 				user: newUser,
-				message: "Profile modified successfully!!",
+				messageReturn: "Profile modified successfully!!",
 			});
 		} else {
 			res
 				.status(400)
-				.json({ message: "Invalid operation!" });
+				.json({ messageReturn: "Invalid operation!" });
 		}
 	} catch (error) {
 		return res.status(500).send({ error: "Server error" });
@@ -140,11 +140,11 @@ exports.deleteAccount = async (req, res) => {
 			fs.unlink(`upload/${filename}`, () => {
 				// if photo exists it'll delete and the account
 				db.User.destroy({ where: { id: id } });
-				res.status(200).json({ messageRetour: "deleted user" });
+				res.status(200).json({ messageReturn: "deleted user" });
 			});
 		} else {
 			db.User.destroy({ where: { id: id } }); // delete the account
-			res.status(200).json({ messageRetour: "deleted user" });
+			res.status(200).json({ messageReturn: "deleted user" });
 		}
 	} catch (error) {
 		return res.status(500).send({ error: "Server error" });
