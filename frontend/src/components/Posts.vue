@@ -262,7 +262,6 @@ export default {
 		}
 	},
 	beforeMount () {
-			console.log(this.postProps)
 			this.postProps = this.getPosts
 	},
 	computed: {
@@ -282,7 +281,6 @@ export default {
 			try {
 				const response = await PostService.getPosts()
 				this.posts = response.data
-				console.log(this.posts)
 			} catch (error) {
 				this.errorMessage = error.response.data.error
 			}

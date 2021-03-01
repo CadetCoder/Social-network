@@ -145,7 +145,6 @@ export default {
 		},
 		renderView () {
 			this.$store.dispatch('RenderView', this.render + 1)
-			console.log('rerender', this.render)
 		}
 
 	}
