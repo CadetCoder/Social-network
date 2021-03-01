@@ -275,7 +275,6 @@ export default {
 				return this.$store.state.user.id
 				}
 	},
-
 	methods: {
 		async reloadFeed () {
 			try {
