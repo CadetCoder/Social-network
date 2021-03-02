@@ -301,7 +301,6 @@ export default {
 		},
 
 		likePost (id) {
-			console.log(id)
 			const data = 1
 		this.$store.dispatch('likePost', {
 				id: id,
