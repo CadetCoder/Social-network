@@ -240,7 +240,7 @@ export default {
 	name: 'Posts',
 	data: function () {
 		return {
-						postProps: [],
+			postProps: [],
 			show: false,
 			width: 500,
 			commentForm: false,
@@ -251,7 +251,7 @@ export default {
 			photo: false,
 			posts: [],
 			rules: {
-				required: (value) => !!value || 'Required.'
+			required: (value) => !!value || 'Required.'
 			},
 			messageReturn: null,
 			errorMessage: null,
@@ -296,19 +296,19 @@ export default {
 		deleteComment (id) {
 			this.$store.dispatch('deleteComment', id)
 			this.$emit('renderView')
-					this.$emit('renderView')
+			this.$emit('renderView')
 			this.$store.dispatch('RenderView', this.render + 1)
 		},
 
 		likePost (id) {
 			const data = 1
-		this.$store.dispatch('likePost', {
+			this.$store.dispatch('likePost', {
 				id: id,
 				data: data
 			})
 			this.$store.dispatch('getPosts')
 			this.reloadFeed()
-						this.$store.dispatch('RenderView', this.render + 1)
+			this.$store.dispatch('RenderView', this.render + 1)
 			this.$emit('renderView')
 		},
 		getOnePost (id) {
