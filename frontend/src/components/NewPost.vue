@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 /* eslint-disable no-unused-expressions */
 <template>
   <v-container fluid class="post-box">
@@ -66,7 +67,7 @@
                 accept="image/png, image/jpeg,
                 image/bmp, image/gif"
                 ref="file"
-                name=" charger une image"
+                name=" upload an image"
                 class="input-group--focused"
               />
             </div>
@@ -123,41 +124,52 @@ export default {
   },
   computed: {
     messageReturn () {
-      return this.$store.getters.message
+      // eslint-disable-next-line semi
+      return this.$store.getters.message;
     },
     errorMessage () {
-      return this.$store.getters.error
+      // eslint-disable-next-line semi
+      return this.$store.getters.error;
     }
   },
   methods: {
     toggleLink () {
       // eslint-disable-next-line no-sequences
-      // eslint-disable-next-line no-unused-expressions
-      (this.withLink = true) (this.options = false)
+      // eslint-disable-next-line semi
+      (this.withLink = true) (this.options = false);
     },
     toggleImage () {
       // eslint-disable-next-line no-sequences
-      // eslint-disable-next-line no-unused-expressions
-      (this.withImage = true) (this.options = false)
+      // eslint-disable-next-line semi
+      (this.withImage = true) (this.options = false);
     },
     uploadImage () {
-      const file = this.$refs.file.files[0]
-      this.file = file
+      // eslint-disable-next-line semi
+      const file = this.$refs.file.files[0];
+      // eslint-disable-next-line semi
+      this.file = file;
     },
     onSubmit () {
-      const formData = new FormData()
-      formData.append('message', this.message)
+      // eslint-disable-next-line semi
+      const formData = new FormData();
+      // eslint-disable-next-line semi
+      formData.append('message', this.message);
       if (this.link !== null) {
-        formData.append('link', this.link)
+        // eslint-disable-next-line semi
+        formData.append('link', this.link);
       }
       if (this.file !== null) {
-        formData.append('image', this.file)
+        // eslint-disable-next-line semi
+        formData.append('image', this.file);
       }
-      this.$store.dispatch('createPost', formData)
-      this.$router.push('/posts')
+      // eslint-disable-next-line semi
+      this.$store.dispatch('createPost', formData);
+      // eslint-disable-next-line semi
+      this.$router.push('/posts');
     }
   }
-}
+  // eslint-disable-next-line semi
+};
 </script>
 <style lang="scss" scoped>
 
