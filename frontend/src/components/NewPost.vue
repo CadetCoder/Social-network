@@ -168,8 +168,7 @@ export default {
       this.$router.push('/posts');
     }
   }
-  // eslint-disable-next-line semi
-};
+}
 </script>
 <style lang="scss" scoped>
 
