@@ -164,8 +164,7 @@ export default {
       }
       // eslint-disable-next-line semi
       this.$store.dispatch('createPost', formData);
-      // eslint-disable-next-line semi
-      this.$router.push('/posts');
+      this.$router.push('/posts')
     }
   }
 }
