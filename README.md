@@ -41,7 +41,7 @@ Local:   http://localhost:8080/
 ```	
 cd backend	
 npm install	
-nodemon start	
+nodemon server	
 ```	
 ### Technologies	
 * NodeJS	
@@ -51,7 +51,20 @@ nodemon start
 
 ### Database :	
 
-Make sure you have `MySQL` installed globally by downloading MySQL [here](https://dev.mysql.com/downloads/).	
+Make sure you have `MySQL` installed globally by downloading MySQL [here](https://dev.mysql.com/downloads/).
+
+## Installing and Starting MySQL
+
+**Microsoft Windows.** The recommended way to install MySQL on Microsoft Windows is to use the MySQL Installer; see [MySQL Installer Method](https://dev.mysql.com/doc/refman/5.7/en/windows-installation.html#windows-installation-simple) on how to download and run the MySQL Installer. For a detailed explanation for each step of the installation wizard, see [MySQL Installer for Windows](https://dev.mysql.com/doc/refman/8.0/en/mysql-installer.html).
+
+If you have chosen to configure MySQL as a Windows service during the installation process, which is the default option (see [Windows Service](https://dev.mysql.com/doc/refman/8.0/en/mysql-installer-workflow.html#server-windows-service) for details), the MySQL server will start automatically after the installation process is completed.
+
+Detailed information regarding Windows installation, including alternative installation methods and instructions for troubleshooting, can be found in [Installing MySQL on Microsoft Windows](https://dev.mysql.com/doc/refman/8.0/en/windows-installation.html).
+
+**OS X.** The recommended way for installing MySQL on OS X is to use the OS X installer package. See [Installing MySQL on macOS Using Native Packages](https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html) on how to download and run the installer package, and how to start the MySQL server afterward.
+
+Detailed information regarding installation on OS X can be found in [Installing MySQL on macOS](https://dev.mysql.com/doc/refman/8.0/en/osx-installation.html).
+
 
 To install MySQL in your project please visit [Node.js MySQL](https://www.w3schools.com/nodejs/nodejs_mysql.asp).	
 
