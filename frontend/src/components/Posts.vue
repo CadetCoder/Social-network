@@ -265,14 +265,14 @@ export default {
 			this.postProps = this.getPosts
 	},
 	computed: {
-			render () {
-			return this.$store.state.render
-				},
-				getPosts () {
-					return this.$store.state.posts
-				},
-				isLiked () {
-				return this.$store.state.user.id
+			isLiked () {
+				const userId = this.$store.state.user.id
+				let userLiked = this.post.Likes.map((a) => a.UserId)
+				if (userLIked.includes (userId)) {
+					return 'pink'
+				} else {
+					return ''
+				}
 				}
 	},
 	methods: {
