@@ -238,6 +238,13 @@ import PostService from '../services/PostService'
 
 export default {
 	name: 'Posts',
+
+	props: {
+		posts: {
+			type: Object
+		}
+	},
+
 	data: function () {
 		return {
 			postProps: [],
