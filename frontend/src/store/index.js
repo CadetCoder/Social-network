@@ -145,11 +145,8 @@ export default new Vuex.Store({
 
 		LIKE_POST (state, like) {
 			state.posts = [like, ...state.posts]
-		},
-		// end like
-		RenderView (state, render) {
-			state.render = render
 		}
+		// end like
 	},
 
 	// Update the Vuex state
