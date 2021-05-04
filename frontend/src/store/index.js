@@ -313,9 +313,6 @@ export default new Vuex.Store({
 						commit('GET_POSTS', posts)
 					})
 				})
-		},
-		RenderView ({ commit }, render) {
-	commit('RenderView', render)
-}
+		}
 	}
 })
