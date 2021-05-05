@@ -7,7 +7,7 @@
             :src="require('../assets/logo_transparent.png')"
             class="my-2"
             contain
-            height="50"
+            height="40"
             alt="logo groupomania"
           />
           <h1 class="font-weight-regular text-center">News feed !</h1>
