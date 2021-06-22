@@ -35,7 +35,7 @@
 						<v-tooltip bottom>
 							<template v-slot:activator="{ on, attrs }">
 								<v-btn
-									to="/add"
+									to="/hot"
 									small
 									class="hot-posts"
 									v-bind="attrs"
