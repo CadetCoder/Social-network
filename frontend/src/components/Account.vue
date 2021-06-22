@@ -5,7 +5,7 @@
         <v-card class="account-card d-flex flex-column" elevation="4" xs6>
           <div class="profile-top pb-3 ">
             <v-btn to="/posts" class="mx-2 return-btn" x-small>
-              Return
+              Go Back
             </v-btn>
             <v-card-title flat dense dark class="profile-title mr-3"
               ><h1 class="title">My Profile</h1>
