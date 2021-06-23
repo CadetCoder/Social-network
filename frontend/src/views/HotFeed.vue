@@ -44,7 +44,7 @@
                   Most liked
                 </v-btn>
               </template>
-              <span>Most liked</span>
+              <span> Most liked </span>
             </v-tooltip>
 
             <v-tooltip bottom>
