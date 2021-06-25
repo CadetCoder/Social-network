@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../components/Login.vue'
 import Feed from '../views/Feed.vue'
 import HotFeed from '../views/HotFeed.vue'
 import NewPost from '../components/NewPost.vue'
@@ -21,13 +20,13 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: () =>
-      import (/* webpackChunkName: "Signup" */ '../components/Signup.vue')
+      import (/* webpackChunkName: "Signup" */ '../components/Signup')
   },
   {
     path: '/login',
     name: 'login',
     component: () =>
-      import (/* webpackChunkName: "Login" */ '../components/Login.vue')
+      import (/* webpackChunkName: "Login" */ '../components/Login')
   },
   {
     path: '/account/:id',
