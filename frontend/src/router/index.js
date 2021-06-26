@@ -36,7 +36,8 @@ const routes = [
   {
     path: '/posts',
     name: 'feed',
-    component: Feed
+    component: () =>
+      import (/* webpackChunkName: "Feed" */ '../views/Feed')
   },
   {
     path: '/hot',
