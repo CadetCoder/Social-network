@@ -4,7 +4,6 @@ import Home from '../views/Home.vue'
 import Feed from '../views/Feed.vue'
 import HotFeed from '../views/HotFeed.vue'
 import NewPost from '../components/NewPost.vue'
-import Account from '../components/Account.vue'
 import SinglePost from '../components/SinglePost.vue'
 import Accounts from '../components/Accounts.vue'
 
@@ -31,7 +30,8 @@ const routes = [
   {
     path: '/account/:id',
     name: 'account',
-    component: Account
+    component: () =>
+      import (/* webpackChunkName: "Account" */ '../components/Account')
   },
   {
     path: '/posts',
