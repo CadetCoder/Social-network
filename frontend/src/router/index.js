@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Feed from '../views/Feed.vue'
 import HotFeed from '../views/HotFeed.vue'
 import NewPost from '../components/NewPost.vue'
 import SinglePost from '../components/SinglePost.vue'
