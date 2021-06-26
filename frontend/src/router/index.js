@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import NewPost from '../components/NewPost.vue'
-import Accounts from '../components/Accounts.vue'
 
 Vue.use(VueRouter)
 
@@ -51,8 +50,8 @@ const routes = [
   {
     path: '/accounts',
     name: 'accounts',
-    component: Accounts
-
+    component: () =>
+    import (/* webpackChunkName: "Accounts" */ '../views/Accounts')
   },
 
   {
