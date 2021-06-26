@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import NewPost from '../components/NewPost.vue'
 
 Vue.use(VueRouter)
 
@@ -57,7 +56,8 @@ const routes = [
   {
     path: '/add',
     name: 'NewPost',
-    component: NewPost
+    component: () =>
+      import (/* webpackChunkName: "NewPost" */ '../views/NewPost')
   },
 
   {
