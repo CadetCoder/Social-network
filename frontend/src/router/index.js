@@ -50,7 +50,7 @@ const routes = [
     path: '/accounts',
     name: 'accounts',
     component: () =>
-    import (/* webpackChunkName: "Accounts" */ '../views/Accounts')
+    import (/* webpackChunkName: "Accounts" */ '../component/Accounts')
   },
 
   {
