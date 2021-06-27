@@ -44,7 +44,7 @@ const routes = [
     path: '/posts/:id',
     name: 'singlePost',
     component: () =>
-      import (/* webpackChunkName: "SinglePost" */ '../views/SinglePost')
+      import (/* webpackChunkName: "SinglePost" */ '../comments/SinglePost')
   },
   {
     path: '/accounts',
