@@ -44,7 +44,7 @@ const routes = [
     path: '/posts/:id',
     name: 'singlePost',
     component: () =>
-      import (/* webpackChunkName: "SinglePost" */ '../comments/SinglePost')
+      import (/* webpackChunkName: "SinglePost" */ '../components/SinglePost')
   },
   {
     path: '/accounts',
@@ -57,7 +57,7 @@ const routes = [
     path: '/add',
     name: 'NewPost',
     component: () =>
-      import (/* webpackChunkName: "NewPost" */ '../comments/NewPost')
+      import (/* webpackChunkName: "NewPost" */ '../components/NewPost')
   },
 
   {
