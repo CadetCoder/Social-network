@@ -6,10 +6,8 @@ import 'vuetify/dist/vuetify.min.css'
 import vuetify from './plugins/vuetify'
 import store from './store' // vuex store instance
 import { sync } from 'vuex-router-sync'
-import Vetur from 'vetur'
 
 Vue.config.productionTip = false
-Vetur.ignoreProjectWarning = true
 
 const moment = require('moment') // manage the display of dates with moment-view for date/time stamp in posts
 require('moment/locale/en-gb')
