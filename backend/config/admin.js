@@ -1,6 +1,6 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
-// Function that automatically create an admin account in the database when there's no account exist
+//** Function that automatically create an admin account in the database when there's no account exist */ 
 function setAdmin(req, res) {
 	db.User.findOne({ where: { email: "admin@mail.com" } || { username: "admin" } })
 		.then((user) => {
