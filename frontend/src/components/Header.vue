@@ -43,7 +43,7 @@
       >
 
       <v-btn
-        v-if="isLogged ===true"
+        v-if="isLogged === true"
         aria-label="profile"
         :to="`/account/${user.id}`"
         icon
