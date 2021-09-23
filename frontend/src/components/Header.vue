@@ -20,7 +20,7 @@
         v-if="isLogged === true"
         x-small
         link
-        aria-label="news feed"
+        aria-label="feeds"
         class="input-group--focused"
         to="/posts"
         >News feed</v-btn
