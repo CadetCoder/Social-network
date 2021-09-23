@@ -60,7 +60,7 @@
       >
        <v-btn
         v-if="isLogged == true"
-        aria-label="Members"
+        aria-label="View Members"
         to="/accounts"
         icon
         small
