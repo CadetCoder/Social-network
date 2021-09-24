@@ -127,7 +127,7 @@
 							aria-label="liker"
 							class="like-btn"
 						>
-							<v-icon :color="post.Likes.filter(a => a.UserId == isLiked ) != 0 ? 'pink' :  ''  ">
+							<v-icon :color="isLiked">
 								$vuetify.icons.like
 							</v-icon>
 						</v-btn>
