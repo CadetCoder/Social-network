@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 <template >
 	<div>
-		<v-card class="posts-card mx-auto mt-10 mb-4 pb-5" round elevation="2" v-for="(post,index) of postProps " v-bind:key='index' >
+		<v-card class="posts-card mx-auto mt-10 mb-4 pb-5" round elevation="2">
 			<div>
 				<div class="d-flex justify-space-between pr-2 ">
 					<v-card-title class="post-title">
