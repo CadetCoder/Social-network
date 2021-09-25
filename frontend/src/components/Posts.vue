@@ -265,9 +265,6 @@ export default {
 			}
 		}
 	},
-	beforeMount () {
-			this.postProps = this.getPosts
-	},
 	computed: {
 			isLiked () {
 				const userId = this.$store.state.user.id
