@@ -255,7 +255,6 @@ export default {
 			update: false,
 			isValid: true,
 			photo: false,
-			posts: [],
 			rules: {
 			required: (value) => !!value || 'Required.'
 			},
