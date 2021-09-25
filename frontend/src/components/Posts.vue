@@ -291,7 +291,7 @@ export default {
 		deletePost (id) {
 			this.$router.push(`/account/${id}`)
 		},
-		likePost() {
+		likePost () {
 			this.$emit("likePost", this.post.id);
 		},
 		deleteComment (id) {
