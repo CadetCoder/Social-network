@@ -294,24 +294,6 @@ export default {
 		likePost () {
 			this.$emit("likePost", this.post.id);
 		},
-		deleteComment (id) {
-			this.$store.dispatch('deleteComment', id)
-			this.$emit('renderView')
-			this.$emit('renderView')
-			this.$store.dispatch('RenderView', this.render + 1)
-		},
-
-		likePost (id) {
-			const data = 1
-			this.$store.dispatch('likePost', {
-				id: id,
-				data: data
-			})
-			this.$store.dispatch('getPosts')
-			this.reloadFeed()
-			this.$store.dispatch('RenderView', this.render + 1)
-			this.$emit('renderView')
-		},
 		getOnePost (id) {
 			this.$router.push(`posts/${id}`)
 		},
