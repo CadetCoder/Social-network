@@ -291,6 +291,9 @@ export default {
 		deletePost (id) {
 			this.$router.push(`/account/${id}`)
 		},
+		likePost() {
+			this.$emit("likePost", this.post.id);
+		},
 		deleteComment (id) {
 			this.$store.dispatch('deleteComment', id)
 			this.$emit('renderView')
