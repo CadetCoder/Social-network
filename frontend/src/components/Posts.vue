@@ -289,10 +289,7 @@ export default {
 			this.$router.push(`/account/${id}`)
 		},
 		deletePost (id) {
-			this.$store.dispatch('deletePost', id)
-			this.$emit('renderView')
-					this.$emit('renderView')
-			this.$store.dispatch('RenderView', this.render + 1)
+			this.$router.push(`/account/${id}`)
 		},
 		deleteComment (id) {
 			this.$store.dispatch('deleteComment', id)
