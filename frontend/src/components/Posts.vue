@@ -247,7 +247,6 @@ export default {
 
 	data: function () {
 		return {
-			postProps: [],
 			show: false,
 			width: 500,
 			commentForm: false,
