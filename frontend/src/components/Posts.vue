@@ -254,7 +254,6 @@ export default {
 			showFeed: true,
 			update: false,
 			isValid: true,
-			photo: false,
 			rules: {
 			required: (value) => !!value || 'Required.'
 			},
