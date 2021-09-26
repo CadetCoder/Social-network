@@ -292,7 +292,7 @@ export default {
 			this.$router.push(`/account/${id}`)
 		},
 		likePost () {
-			this.$emit('likePost', this.post.id);
+			this.$emit('likePost', this.post.id)
 		},
 		getOnePost (id) {
 			this.$router.push(`posts/${id}`)
