@@ -292,7 +292,7 @@ export default {
 			this.$router.push(`/account/${id}`)
 		},
 		likePost () {
-			this.$emit("likePost", this.post.id);
+			this.$emit('likePost', this.post.id);
 		},
 		getOnePost (id) {
 			this.$router.push(`posts/${id}`)
@@ -308,6 +308,11 @@ export default {
 			this.$store.dispatch('getPostById', id)
 			this.$emit('renderView')
 			this.$store.dispatch('RenderView', this.render + 1)
+		},
+
+		deleteComment (id) {
+			this.$store.dispatch("deleteComment", id),
+			this.reloadFeed()
 		}
 	}
 }
