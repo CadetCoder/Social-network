@@ -311,7 +311,7 @@ export default {
 		},
 
 		deleteComment (id) {
-			this.$store.dispatch("deleteComment", id),
+			this.$store.dispatch('deleteComment', id)
 			this.reloadFeed()
 		}
 	}
