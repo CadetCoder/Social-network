@@ -268,8 +268,8 @@ export default {
 	computed: {
 			isLiked () {
 				const userId = this.$store.state.user.id
-				let userLiked = this.post.Likes.map((a) => a.UserId)
-				if (userLIked.includes (userId)) {
+				let userLike = this.post.Likes.map((a) => a.UserId)
+				if (userLike.includes (userId)) {
 					return 'pink'
 				} else {
 					return ''
