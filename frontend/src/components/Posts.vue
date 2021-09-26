@@ -266,15 +266,15 @@ export default {
 		}
 	},
 	computed: {
-			isLiked () {
-				const userId = this.$store.state.user.id
-				let userLike = this.post.Likes.map((a) => a.UserId)
-				if (userLike.includes (userId)) {
-					return 'pink'
-				} else {
-					return ''
-				}
-				}
+		isLiked () {
+			const userId = this.$store.state.user.id
+			const userLike = this.post.Likes.map((a) => a.UserId)
+			if (userLike.includes(userId)) {
+				return 'pink'
+			} else {
+				return ''
+			}
+		}
 	},
 	methods: {
 		async reloadFeed () {
