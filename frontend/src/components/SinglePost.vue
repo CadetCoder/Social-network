@@ -177,7 +177,7 @@ export default {
         formData.append('link', this.link)
       }
       formData.append('image', this.file)
-          this.$store.dispatch('getPosts')
+      this.$store.dispatch('getPosts')
       this.$store.dispatch('updatePost', formData)
       this.$store.dispatch('getPostById', id)
       this.showImage = true
