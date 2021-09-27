@@ -19,8 +19,7 @@ export default new Vuex.Store({
 		users: [],
 		post: {},
 		message: '',
-		error: '',
-		render: 1
+		error: ''
 	},
 	plugins: [
 		createPersistedState({
