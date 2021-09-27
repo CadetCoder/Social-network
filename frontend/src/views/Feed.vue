@@ -141,11 +141,7 @@ export default {
 				data: data
 			})
 			this.$store.dispatch('getPosts')
-		},
-		renderView () {
-			this.$store.dispatch('RenderView', this.render + 1)
 		}
-
 	}
 }
 </script>
