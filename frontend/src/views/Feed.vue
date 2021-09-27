@@ -74,13 +74,16 @@
 					elevation="2"
 				>
 					<v-card-text>
-						<posts :key="render"
-							@deletePost="deletePost(id)"
-							@likePost="likePost(id)"
+						<posts
+							v-for="post of posts"
+							:key="post.id"
+							:post="post"
+							:id="post.id"
+							@deletePost="deletePost(post.id)"
+							@likePost="likePost(post.id)"
 							@reloadFeed="reloadFeed()"
-							@onSubmitComment="onSubmitComment(id)"
-							@deleteComment="deleteComment(id)"
-							@renderView="renderView()"
+							@onSubmitComment="onSubmitComment(post.id)"
+							@deleteComment="deleteComment(comment.id)"
 						>
 						</posts>
 					</v-card-text>
