@@ -113,11 +113,7 @@ export default {
 	computed: {
 		posts () {
 			return this.$store.getters.posts
-		},
-		render () {
-			return this.$store.state.render
 		}
-
 	},
 	data () {
 		return {
